@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Knob from 'react-canvas-knob';
+import Scrollchor from 'react-scrollchor';
 
 class Rain extends Component {
   constructor(props) {
@@ -52,8 +53,6 @@ class Rain extends Component {
     this.createRain();
   }
 
-
-
   render() {
     return (
       <div className="Rain">
@@ -72,7 +71,9 @@ class Rain extends Component {
           min={0}
           max={11}
         />
-        {this.state.showMessage ? <p>Learn more about what I do</p>: <p>From a scale of 1 to 11, how miserable is it outside?</p>}
+        {this.state.showMessage ? 
+          <p><Scrollchor to="#home"animate={{offset: 0, duration: 100}}>Learn more about what I do</Scrollchor></p>
+          : <p>From a scale of 1 to 11, how miserable is it outside?</p>}
       </div>
     );
   }
