@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './black-coffee-cup.svg';
 import './App.css';
 import Rain from './components/Rain';
+import Header from './components/Header';
 
 
 export default function App(props) {
@@ -12,6 +13,7 @@ export default function App(props) {
         <Rain/>
       </div>
       <div className="Page" id="home">
+        <Header/>
         <h1>Home</h1>
       </div>
       <div className="Page">
