@@ -1,48 +1,52 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import Knob from 'react-canvas-knob';
 import Scrollchor from 'react-scrollchor';
 
 class Rain extends Component {
+  static PropTypes = {
+    numDrops: PropTypes.number.isRequired,
+    createRain: PropTypes.func.isRequired,
+    stopRain: PropTypes.func.isRequired,
+    onRainChange: PropTypes.func.isRequired
+  }
+
   constructor(props) {
     super(props);
-  
+
     this.state =  { 
-      numDrops: 3,
-      showMessage: false
+      numDrops: this.props.numDrops,
+      showMessage: false,
+      seenLanding: false
     };
   }
 
   componentDidMount() {
-    this.createRain();
+    this.props.createRain();
   }
 
-  randRange(minNum, maxNum) {
-    return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
+  learnClicked = () => {
+    this.props.stopRain();
+    this.setState({seenLanding: true});
   }
-  
-  createRain = () => {
-    const rainSection = ReactDOM.findDOMNode(this.refs.Rain);
 
-    while(rainSection.hasChildNodes()) {
-      rainSection.removeChild(rainSection.lastChild);
-    }
-
-    for(let i = 1; i < this.state.numDrops * 150; i++) {
-      const dropLeft = this.randRange(0, 1600);
-      const dropTop = this.randRange(-1000, 1400);
-
-      const drop = document.createElement('div');
-
-      drop.setAttribute('class', 'drop');
-      drop.setAttribute('id', `drop${i}`);
-
-      rainSection.appendChild(drop);
-
-      drop.style.left = `${dropLeft}px`;
-      drop.style.top = `${dropTop}px`;
-    }
-  };
+  determineMessage = () => {
+    if(!this.state.showMessage && !this.state.seenLanding) {
+      return (
+        <p>How wet is portland?</p>   
+      );
+    } else if(this.state.showMessage && this.state.seenLanding) {
+      return (
+        <p>Make it rain</p>   
+      );
+    } else if(this.state.showMessage && !this.state.seenLanding) {
+      return (
+        <p>
+          <Scrollchor to="#About" afterAnimate={this.learnClicked}>Learn more about what I do</Scrollchor>
+        </p>
+      );
+    } else return null;
+  }
 
   handleChange = newValue => {
     this.setState({numDrops: newValue});
@@ -50,13 +54,13 @@ class Rain extends Component {
 
   onChangeEnd = () => {
     this.setState({showMessage: true});
-    this.createRain();
+    this.props.onRainChange(this.state.numDrops);
   }
 
   render() {
     return (
-      <div className="Rain">
-        <div ref="Rain"/>
+      <div className="RainControl">
+        <div ref="Rain" id="Rain"/>
         <Knob
           value={this.state.numDrops}
           onChange={this.handleChange}
@@ -71,9 +75,7 @@ class Rain extends Component {
           min={0}
           max={11}
         />
-        {this.state.showMessage ? 
-          <p><Scrollchor to="#About">Learn more about what I do</Scrollchor></p>
-          : <p>How wet is Portland?</p>}
+        {this.determineMessage()}
       </div>
     );
   }
