@@ -72,8 +72,8 @@ class Rain extends Component {
           max={11}
         />
         {this.state.showMessage ? 
-          <p><Scrollchor to="#home"animate={{offset: 0, duration: 100}}>Learn more about what I do</Scrollchor></p>
-          : <p>From a scale of 1 to 11, how miserable is it outside?</p>}
+          <p><Scrollchor to="#About">Learn more about what I do</Scrollchor></p>
+          : <p>How wet is Portland?</p>}
       </div>
     );
   }

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  position: relative;
 }
 
 .App-logo {
@@ -23,6 +24,11 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -43,10 +49,60 @@ body {
   margin-top: 50px;
 }
 
-.Page {
+#Landing {
   height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+
+#Main {
+  position: relative;
+}
+
+.Header {
+  height: 20vh;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  padding: 15px;
+  width: 100vw;
+}
+
+.Page {
+  padding-top: 15vh;
+  height: 85vh;
   overflow: hidden;
   position: relative;
+}
+
+.Logo {
+  border: 2px solid white;
+  height: 45px;
+  width: 45px;
+  text-align: center;
+  float: left;
+  border-radius: 2%;
+}
+
+.Collapsible {
+  float: left;
+  text-align: right;
+  position: absolute;
+  right: 45px;
+}
+
+.Collapsible div {
+  left: 100px;
+}
+
+.Clearfix {
+  clear: both;
+}
+
+.Logo h5 {
+  font-size: 14px;
+  margin: 16px 0;
 }
 
 .drop {

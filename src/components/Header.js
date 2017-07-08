@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import HamburgerMenu from 'react-hamburger-menu';
+import Scrollchor from 'react-scrollchor';
 import Collapsible from 'react-collapsible';
 
 class Header extends Component {
@@ -20,34 +21,35 @@ class Header extends Component {
 
   render() {
     return (
-      <div>
-        <Collapsible 
-          trigger={<HamburgerMenu
-            isOpen={this.state.open}
-            menuClicked={this.handleClick.bind(this)}
-            width={18}
-            height={15}
-            strokeWidth={1}
-            rotate={0}
-            color='white'
-            borderRadius={0}
-            animationDuration={0.5}
-          />}
-        >
-          <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-          </ul>
-        </Collapsible>
-        {/*{this.state.open ? 
-        <ul>
-          <li>About</li>
-          <li>Projects</li>
-          <li>Contact</li>
-          <li>Github</li>
-          <li>Twitter</li>
-        </ul> : null}*/}
+      <div className="Header">
+          <div className="Logo">
+            <h5>
+              W.N. 
+            </h5>
+          </div>
+          <Collapsible 
+            trigger={
+              <HamburgerMenu className="Hamburger"
+                isOpen={this.state.open}
+                menuClicked={this.handleClick.bind(this)}
+                width={35}
+                height={25}
+                strokeWidth={1}
+                rotate={0}
+                color='white'
+                borderRadius={2}
+                animationDuration={0.5}
+              />
+            }
+          >
+            <ul>
+              <li><Scrollchor to="#About">About</Scrollchor></li>
+              <li><Scrollchor to="#Projects">Projects</Scrollchor></li>
+              <li><Scrollchor to="#Contact">Contact</Scrollchor></li>
+              <li><Scrollchor to="#Landing">Back to the Rain</Scrollchor></li>
+            </ul>
+          </Collapsible>
+        <div className="Clearfix"/>
       </div>
     );
   }

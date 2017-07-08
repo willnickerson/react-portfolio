@@ -8,16 +8,19 @@ import Header from './components/Header';
 export default function App(props) {
   return (
     <div className="App">
-      <div className="Page">
+      <Header/>
+      <div id="Landing">
         <img src={logo} className="App-logo" alt="logo" />
         <Rain/>
       </div>
-      <div className="Page" id="home">
-        <Header/>
-        <h1>Home</h1>
+      <div className="Page" id="About">
+          <h1>About</h1>
       </div>
-      <div className="Page">
+      <div className="Page" id="Projects">
         <h1>Projects</h1>
+      </div>
+      <div className="Page" id="Contact">
+        <h1>Contact</h1>
       </div>
     </div>
   );
