@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Knob from 'react-canvas-knob';
+import DownButton from './DownButton';
 import Scrollchor from 'react-scrollchor';
 
 class Rain extends Component {
@@ -16,7 +17,11 @@ class Rain extends Component {
 
     this.state =  { 
       numDrops: this.props.numDrops,
-      showMessage: false,
+      message: 'How wet is portland?',
+      navMessage: (
+        <DownButton text="More about me" anchor="#About"/>
+      ),
+      showMessage: true,
       seenLanding: false
     };
   }
@@ -30,30 +35,12 @@ class Rain extends Component {
     this.setState({seenLanding: true});
   }
 
-  determineMessage = () => {
-    if(!this.state.showMessage && !this.state.seenLanding) {
-      return (
-        <p>How wet is portland?</p>   
-      );
-    } else if(this.state.showMessage && this.state.seenLanding) {
-      return (
-        <p>Make it rain</p>   
-      );
-    } else if(this.state.showMessage && !this.state.seenLanding) {
-      return (
-        <p>
-          <Scrollchor to="#About" afterAnimate={this.learnClicked}>Learn more about what I do</Scrollchor>
-        </p>
-      );
-    } else return null;
-  }
-
   handleChange = newValue => {
     this.setState({numDrops: newValue});
   };
 
   onChangeEnd = () => {
-    this.setState({showMessage: true});
+    this.setState({showMessage: false});
     this.props.onRainChange(this.state.numDrops);
   }
 
@@ -75,7 +62,10 @@ class Rain extends Component {
           min={0}
           max={11}
         />
-        {this.determineMessage()}
+        {this.state.showMessage ? 
+          <h4>{this.state.message}</h4> :
+          <p onClick={this.props.stopRain}>{this.state.navMessage}</p>
+        }
       </div>
     );
   }

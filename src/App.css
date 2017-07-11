@@ -29,6 +29,10 @@ ul {
   padding: 0;
 }
 
+h4 {
+  margin-bottom: 5px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -92,6 +96,29 @@ body {
   margin: 0;
 }
 
+.Down-Button {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+  transition: all .5s ease;
+  opacity: .7;
+}
+
+.Down-Button span {
+  opacity: 0;
+}
+
+.Down-Button:hover {
+  opacity: 1;
+}
+
+.Down-Button:hover span {
+  opacity: 1;
+}
+
+
+
 .Socials li {
   display: inline-block;
   margin-left: 25px;
@@ -136,6 +163,10 @@ body {
 
 .icon-linkedin:before {
   content: "\eac9";
+}
+
+.icon-arrow-down2:before {
+  content: "\ea3e";
 }
 
 
