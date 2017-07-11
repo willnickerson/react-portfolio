@@ -32,13 +32,13 @@ class App extends Component {
 
   testScroll = ev => {
     window.onscroll = () => {
-      if(window.pageYOffset < 100){
+      if(window.pageYOffset < 200) {
         this.createRain();
+      } else {
+        this.stopRain();
       }
     };
   }
-
-
 
   randRange(minNum, maxNum) {
     return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
@@ -71,7 +71,6 @@ class App extends Component {
 
   stopRain = () => {
     const rainSection = document.getElementById('Rain');
-
     while(rainSection.hasChildNodes()) {
       rainSection.removeChild(rainSection.lastChild);
     }
@@ -116,12 +115,12 @@ class App extends Component {
 
         <div className="Page" id="About">
             <h1>About</h1>
-            <DownButton text="See some of my work" anchor="#Projects"/>
+            <DownButton stopRain={this.stopRain} text="See some of my work" anchor="#Projects"/>
         </div>
 
         <div className="Page" id="Projects">
           <h1>Projects</h1>
-          <DownButton text="Contact Me!" anchor="#Contact"/>
+          <DownButton stopRain={this.stopRain} text="Contact Me!" anchor="#Contact"/>
         </div>
 
         <div className="Page" id="Contact">

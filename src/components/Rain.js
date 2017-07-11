@@ -64,7 +64,7 @@ class Rain extends Component {
         />
         {this.state.showMessage ? 
           <h4>{this.state.message}</h4> :
-          <p onClick={this.props.stopRain}>{this.state.navMessage}</p>
+          <p>{this.state.navMessage}</p>
         }
       </div>
     );

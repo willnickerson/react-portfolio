@@ -5,7 +5,7 @@ import Scrollchor from 'react-scrollchor';
 const DownButton = props => {
   return (
     <div className="Down-Button">
-        <Scrollchor to={props.anchor}>
+        <Scrollchor to={props.anchor} afterAnimate={props.stopRain}>
           <h4>{props.text}</h4>
           <span className="icon-arrow-down2"></span>
         </Scrollchor>
@@ -15,7 +15,8 @@ const DownButton = props => {
 
 DownButton.propTypes = {
   text: PropTypes.string.isRequired,
-  anchor: PropTypes.string.isRequired
+  anchor: PropTypes.string.isRequired,
+  stopRain: PropTypes.func.isRequired
 };
 
 
