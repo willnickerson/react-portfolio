@@ -5,6 +5,8 @@ import Collapsible from 'react-collapsible';
 import logo from './black-coffee-cup.svg';
 import './App.css';
 import Rain from './components/Rain';
+import About from './components/About';
+import Projects from './components/Projects';
 import Header from './components/Header';
 import DownButton from './components/DownButton';
 
@@ -114,12 +116,12 @@ class App extends Component {
         </div>
 
         <div className="Page" id="About">
-            <h1>About</h1>
+            <About/>
             <DownButton stopRain={this.stopRain} text="See some of my work" anchor="#Projects"/>
         </div>
 
         <div className="Page" id="Projects">
-          <h1>Projects</h1>
+          <Projects/>
           <DownButton stopRain={this.stopRain} text="Contact Me!" anchor="#Contact"/>
         </div>
 

@@ -1,3 +1,6 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
 .App {
   text-align: center;
   position: relative;
@@ -103,6 +106,13 @@ body {
   text-align: center;
   transition: all .5s ease;
   opacity: .7;
+}
+
+.About {
+  font-size: 2em;
+  font-weight: bold;
+  width: 80%;
+  margin: 12% auto;
 }
 
 .Down-Button span {
