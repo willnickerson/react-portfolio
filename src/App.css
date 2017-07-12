@@ -18,6 +18,55 @@
   color: white;
 }
 
+/*slider */
+
+.slick-slider {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.slick-slide img {
+  display: block;
+  width: 80%;
+  margin: 0 auto 15px auto;
+  border: 5px solid white;
+}
+
+.slick-slide p {
+  font-size: 16px;
+  text-align: left;
+  width: 80%;
+  margin: 25px auto;
+  text-indent: 25px;
+}
+
+.slick-next {
+  right: 20px;
+  z-index: 1000;
+}
+
+.slick-prev {
+  left: 20px;
+  z-index: 1000;
+}
+
+.slick-dots li button:before {
+  font-size: 8px;
+}
+
+.slick-dots li.slick-active button:before {
+    opacity: 1;
+    color: white;
+}
+
+.slick-dots {
+  bottom: -25px;
+}
+
+.slick-dtos li button:before {
+  outline: solid white;
+}
+
 .App-intro {
   font-size: large;
 }
