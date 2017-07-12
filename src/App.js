@@ -7,6 +7,7 @@ import './App.css';
 import Rain from './components/Rain';
 import About from './components/About';
 import Projects from './components/Projects';
+import Contact from './components/Contact';
 import Header from './components/Header';
 import DownButton from './components/DownButton';
 
@@ -126,7 +127,7 @@ class App extends Component {
         </div>
 
         <div className="Page" id="Contact">
-          <h1>Contact</h1>
+          <Contact/>
         </div>
       </div>
     );
