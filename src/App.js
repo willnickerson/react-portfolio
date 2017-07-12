@@ -18,14 +18,15 @@ class App extends Component {
 
     this.state = {
       numDrops: 3,
-      isOpen: false
+      isOpen: false,
     };
   }
 
   handleClick = () => {
     this.setState({
-      open: !this.state.open
+      isOpen: !this.state.isOpen,
     });
+    console.log('handleClick called', this.state.isOpen);
   }
 
   componentDidMount = () => {
@@ -82,10 +83,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Collapsible 
+        <Collapsible
+          open={this.state.isOpen}
           trigger={
             <HamburgerMenu className="Hamburger"
-              isOpen={this.state.open}
+              isOpen={this.state.isOpen}
               menuClicked={this.handleClick.bind(this)}
               width={35}
               height={25}
@@ -98,10 +100,10 @@ class App extends Component {
           }>
 
           <ul>
-            <li><Scrollchor to="#About" afterAnimate={this.stopRain}>About</Scrollchor></li>
-            <li><Scrollchor to="#Projects" afterAnimate={this.stopRain}>Projects</Scrollchor></li>
-            <li><Scrollchor to="#Contact" afterAnimate={this.stopRain}>Contact</Scrollchor></li>
-            <li><Scrollchor to="#Landing" afterAnimate={this.createRain}>Back to the Rain</Scrollchor></li>
+            <li><Scrollchor to="#About" beforeAnimate={() => this.handleClick.bind(this)()}>About</Scrollchor></li>
+            <li><Scrollchor to="#Projects" beforeAnimate={() => this.handleClick.bind(this)()}>Projects</Scrollchor></li>
+            <li><Scrollchor to="#Contact" beforeAnimate={() => this.handleClick.bind(this)()}>Contact</Scrollchor></li>
+            <li><Scrollchor to="#Landing" beforeAnimate={() => this.handleClick.bind(this)()}>Back to the Rain</Scrollchor></li>
           </ul>
         </Collapsible>
         <Header/>
