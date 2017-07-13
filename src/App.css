@@ -6,10 +6,10 @@
   position: relative;
 }
 
-.App-logo {
+/* .App-logo {
   margin-top: 13%;
   width: 15%;
-}
+} */
 
 .App-header {
   background-color: #222;
@@ -76,6 +76,10 @@ a {
   text-decoration: none;
 }
 
+/* img {
+  display: block;
+} */
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -101,9 +105,9 @@ body {
   font-size: 20px;
 }
 
-.RainControl {
+/* .RainControl {
   margin-top: 50px;
-}
+} */
 
 #Landing {
   height: 100vh;
@@ -112,35 +116,35 @@ body {
 }
 
 
-#Main {
+/* #Main {
   position: relative;
-}
+} */
 
-.Header {
+/* .Header {
   height: 20vh;
   position: fixed;
   top: 0;
   z-index: 100;
   padding: 2vw;
   width: 96vw;
-}
+} */
 
 .Page {
   padding-top: 15vh;
-  height: 85vh;
+  height: 80vh;
   overflow: hidden;
   position: relative;
 }
 
 
-.Collapsible {
+ .Collapsible {
   float: left;
   text-align: left;
   position: fixed;
   top: 0;
   z-index: 1000;
-  margin: 2vw;
-}
+  margin: 6%;
+} 
 
 .DownArrow {
   width: 50px;
@@ -179,12 +183,12 @@ body {
   opacity: .6;
 }
 
-.About {
+/* .About {
   font-size: 2em;
   font-weight: bold;
   width: 80%;
   margin: 12% auto;
-}
+} */
 
 .Down-Button h4 {
   opacity: 0;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import ReactDOM from 'react-dom';
 import Knob from 'react-canvas-knob';
 import DownButton from './DownButton';
+import { StyleSheet, css } from 'aphrodite';
 
 class Rain extends Component {
 
@@ -10,7 +11,7 @@ class Rain extends Component {
 
     this.state =  { 
       numDrops: 3,
-      message: 'Let\'s make it rain!',
+      message: 'Turn up the rain!',
       navMessage: (
         <DownButton text="More about me" anchor="#About"/>
       ),
@@ -82,9 +83,9 @@ class Rain extends Component {
 
   render() {
     return (
-      <div className="RainControl">
+      <div className={css(styles.rainControl)}>
         <div ref="Rain" id="Rain"/>
-        <Knob
+        <Knob className={css(styles.knob)}
           value={this.state.numDrops}
           onChange={this.handleChange}
           onChangeEnd={this.onChangeEnd}
@@ -106,5 +107,11 @@ class Rain extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  rainControl: {
+    marginTop: '25px'
+  }
+});
 
 export default Rain;
