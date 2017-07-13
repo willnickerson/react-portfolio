@@ -1,23 +1,16 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import ReactDOM from 'react-dom';
 import Knob from 'react-canvas-knob';
 import DownButton from './DownButton';
-import Scrollchor from 'react-scrollchor';
 
 class Rain extends Component {
-  static PropTypes = {
-    numDrops: PropTypes.number.isRequired,
-    createRain: PropTypes.func.isRequired,
-    stopRain: PropTypes.func.isRequired,
-    onRainChange: PropTypes.func.isRequired
-  }
 
   constructor(props) {
     super(props);
 
     this.state =  { 
-      numDrops: this.props.numDrops,
-      message: 'How wet is portland?',
+      numDrops: 3,
+      message: 'Let\'s make it rain!',
       navMessage: (
         <DownButton text="More about me" anchor="#About"/>
       ),
@@ -27,11 +20,11 @@ class Rain extends Component {
   }
 
   componentDidMount() {
-    this.props.createRain();
+    this.createRain();
+    this.testScroll();
   }
 
   learnClicked = () => {
-    this.props.stopRain();
     this.setState({seenLanding: true});
   }
 
@@ -41,7 +34,50 @@ class Rain extends Component {
 
   onChangeEnd = () => {
     this.setState({showMessage: false});
-    this.props.onRainChange(this.state.numDrops);
+    this.createRain();
+  }
+
+  testScroll = ev => {
+    window.onscroll = () => {
+      if(window.pageYOffset < 20) {
+        this.createRain();
+      } else {
+        this.stopRain();
+      }
+    };
+  }
+
+  randRange(minNum, maxNum) {
+    return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
+  }
+ 
+  createRain = () => {
+    this.stopRain();
+    const rainSection = document.getElementById('Rain');
+    // const rainSection = ReactDOM.findDOMNode(this.refs.Rain);
+
+    for(let i = 1; i < this.state.numDrops * 150; i++) {
+      const dropLeft = this.randRange(0, 1600);
+      const dropTop = this.randRange(-1000, 1400);
+
+      const drop = document.createElement('div');
+
+      drop.setAttribute('class', 'drop');
+      drop.setAttribute('id', `drop${i}`);
+
+      rainSection.appendChild(drop);
+
+      drop.style.left = `${dropLeft}px`;
+      drop.style.top = `${dropTop}px`;
+    }
+  };
+
+  stopRain = () => {
+    const rainSection = document.getElementById('Rain');
+    // const rainSection = ReactDOM.findDOMNode(this.refs.Rain);
+    while(rainSection.hasChildNodes()) {
+      rainSection.removeChild(rainSection.lastChild);
+    }
   }
 
   render() {

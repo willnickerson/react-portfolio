@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Contact(props) {
   return (
-    <div>
+    <div className="Page" id="Contact">
       <p>Want to reach out?</p>
       <a href="mailto:willnickersonpdx@gmail.com" className="EmailButton">
         Send me an Email

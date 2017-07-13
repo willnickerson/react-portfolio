@@ -142,6 +142,11 @@ body {
   margin: 2vw;
 }
 
+.DownArrow {
+  width: 50px;
+  height: 50px;
+}
+
 .EmailButton {
   border: 2px solid white;
   padding: 15px 25px;
@@ -171,7 +176,7 @@ body {
   width: 100%;
   text-align: center;
   transition: all .5s ease;
-  opacity: .7;
+  opacity: .6;
 }
 
 .About {
@@ -181,15 +186,16 @@ body {
   margin: 12% auto;
 }
 
-.Down-Button span {
+.Down-Button h4 {
   opacity: 0;
+  transition: all .5s ease;
 }
 
 .Down-Button:hover {
   opacity: 1;
 }
 
-.Down-Button:hover span {
+.Down-Button:hover h4 {
   opacity: 1;
 }
 
@@ -239,10 +245,6 @@ body {
 
 .icon-linkedin:before {
   content: "\eac9";
-}
-
-.icon-arrow-down2:before {
-  content: "\ea3e";
 }
 
 
