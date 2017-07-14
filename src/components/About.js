@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   aboutText: {
     fontSize: '1.7em',
     fontWeight: 'bold',
-    margin: '20% auto 0 auto',
-    width: '90%',
+    margin: '0 auto 0 auto',
+    width: '100%',
   }
 });

@@ -22,11 +22,11 @@ export default function Header(props) {
 
 const styles = StyleSheet.create({
   header: {
-    height: '20vh',
+    height: '27vh',
     width: '100%',
     position: 'fixed',
     top: 0,
-    zIndex: 1000
+    zIndex: 1000,
   },
   socials: {
     float: 'right',

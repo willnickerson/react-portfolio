@@ -11,7 +11,7 @@ class Rain extends Component {
 
     this.state =  { 
       numDrops: 3,
-      message: 'Turn up the rain!',
+      message: <DownButton text="Turn up the rain" anchor="#Landing" arrowNotVisible={true}/>,
       navMessage: (
         <DownButton text="More about me" anchor="#About"/>
       ),
@@ -90,8 +90,8 @@ class Rain extends Component {
           onChange={this.handleChange}
           onChangeEnd={this.onChangeEnd}
           step={.1}
-          width={75}
-          height={75}
+          width={90}
+          height={90}
           disableTextInput={true}
           bgColor={'white'}
           fgColor={'red'}
