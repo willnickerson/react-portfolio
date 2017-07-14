@@ -4,10 +4,10 @@ import { StyleSheet, css } from 'aphrodite';
 export default function Contact(props) {
   return (
     <div className="Page" id="Contact">
-      <p className={css(styles.text)}>Want to work on a project? Want to just say hey?</p>
+      <p className={css(styles.text)}>Want to work on a project? Want to say hi?</p>
       <a href="mailto:willnickersonpdx@gmail.com" className={css(styles.emailButton)}>
         Send me an Email
-        <span> &#8594;</span>
+        <span className={css(styles.arrow, styles.arrowHover)}> &#8594;</span>
       </a>
       <footer className={css(styles.footer)}>
         <hr className={css(styles.hr)}/>
@@ -30,6 +30,15 @@ const styles = StyleSheet.create({
     borderRadius: '5%',
     fontStyle: 'italic',
     marginTop: '25px'
+  },
+  arrow: {
+    opacity: 0,
+    transition: 'all .35s ease'
+  },
+  arrowHover: {
+    ':hover': {
+      opacity: 1
+    }
   },
   footer: {
     width: '100%',

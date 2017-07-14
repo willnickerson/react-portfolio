@@ -5,7 +5,7 @@ import { StyleSheet, css } from 'aphrodite';
 
 export default function Landing(props) {
   return (
-    <div id="Landing">
+    <div id="Landing" className={css(styles.landingPage)}>
       <img src={logo} className={css(styles.logo)} alt="#" />
       <Rain/>
     </div>
@@ -14,6 +14,12 @@ export default function Landing(props) {
 
 
 const styles = StyleSheet.create({
+  landingPage: {
+    height: '100vh',
+    position: 'relative',
+    overflow: 'hidden'
+  },
+
   logo: {
     width: '45%',
     marginTop: '40%'
