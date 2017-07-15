@@ -101,7 +101,7 @@ class Rain extends Component {
         />
         {this.state.showMessage ? 
           <h4>{this.state.message}</h4> :
-          <p>{this.state.navMessage}</p>
+          <h4>{this.state.navMessage}</h4>
         }
       </div>
     );

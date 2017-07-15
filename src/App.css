@@ -9,8 +9,12 @@ body {
   background: #222;
   color: white;
   font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
 }
 
+p {
+  font-family: 'Crimson text', serif; 
+}
 
 a {
   color: white;
@@ -38,12 +42,19 @@ h4 {
 }
 
 .Page {
-  padding-top: 27vh;
-  height: 73vh;
+  padding-top: 29vh;
+  height: 71vh;
   width: 90%;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
+}
+
+@media all and (min-width: 360px) {
+  .Page {
+    padding-top: 26vh;
+    height: 74vh;
+  }
 }
 
 @media all and (min-width: 600px) {
@@ -52,6 +63,9 @@ h4 {
   }
 }
 
+.Clearfix {
+  clear: both;
+}
 
 /* hamburger nav */
 
@@ -79,7 +93,6 @@ h4 {
 }
 
 .slick-slide p {
-  font-size: .9em;
   text-align: left;
   width: 85%;
   margin: 0 auto 10px auto;
@@ -117,41 +130,9 @@ h4 {
 }
 
 
-/* Down arrow */
 
 
-
-/* .Socials {
-  float: right;
-  margin: 0;
-} */
-
-
-.Down-Button h4 {
-  opacity: 0;
-  transition: all .5s ease;
-}
-
-.Down-Button:hover {
-  opacity: 1;
-}
-
-.Down-Button:hover h4 {
-  opacity: 1;
-}
-
-
-
-/* .Socials li {
-  display: inline-block;
-  margin-left: 25px;
-  font-size: 1.45em;
-  color: white;
-} */
-
-.Clearfix {
-  clear: both;
-}
+/* rain drop styles */
 
 .drop {
   background:-webkit-gradient(linear,0% 0%,0% 100%, from(rgba(13,52,58,1) ), to(rgba(255,255,255,0.5))  );
@@ -189,3 +170,28 @@ h4 {
 }
 
 
+ /* ::-webkit-scrollbar {
+    -webkit-appearance: none; 
+    width: 7px;
+} 
+
+ ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,0);
+     -webkit-box-shadow: 0 0 1px rgba(255,255,255,0); 
+} */
+
+/* Down arrow */
+
+/* .Down-Button h4 {
+  opacity: 0;
+  transition: all .5s ease;
+}
+
+.Down-Button:hover {
+  opacity: 1;
+}
+
+.Down-Button:hover h4 {
+  opacity: 1;
+} */

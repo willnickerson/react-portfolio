@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     width: '100%',
     opacity: .7,
-    fontSize: '1em'
+    fontSize: '1em',
   },
   downArrow: {
     height: '40px',

@@ -22,7 +22,7 @@ class Projects extends Component {
         <Slider {...settings}>
           <div>
             {/* eventually but sub slider in here */}
-              <p>
+              <p className={css(styles.description)}>
                 <span className={css(styles.title)}>Portamento. </span>
                 Social media meets the synthesizer. Share and discover sounds that you and your friends make on this MEAN stack application.
                 <ul className={css(styles.linkList)}>
@@ -34,7 +34,7 @@ class Projects extends Component {
               <img className="project-image" src="http://res.cloudinary.com/lejipni8p/image/upload/c_crop,g_north,h_1310,w_2560/v1490814219/Screen_Shot_2017-03-24_at_5.03.32_PM_gsp3re.png" alt="#"/>
           </div>
           <div>
-            <p>
+            <p className={css(styles.description)}>
               <span className={css(styles.title)}>Earth House. </span>
               An ecommerce site and content management system built for a local cold-pressed juice company using the MEAN stack.
               <ul className={css(styles.linkList)}>
@@ -46,7 +46,7 @@ class Projects extends Component {
             <img className="project-image" src="http://res.cloudinary.com/lejipni8p/image/upload/c_crop,g_north,h_1310,w_2560/v1490814197/Screen_Shot_2017-03-24_at_5.05.17_PM_gunpnq.png" alt="#"/>
           </div>
           <div>
-            <p>
+            <p className={css(styles.description)}>
               <span className={css(styles.title)}>React Juicer. </span>
               Make delicious juice recipices with my first full-stack React app!
               <ul className={css(styles.linkList)}>
@@ -67,14 +67,27 @@ class Projects extends Component {
 const styles = StyleSheet.create({
   sliderPage: {
     width: '100%',
-    height: '75vh',
-    paddingTop: '25vh',
-    position: 'relative'
+    height: '71vh',
+    paddingTop: '29vh',
+    position: 'relative',
+    '@media (min-width: 360px)': {
+      height: '74vh',
+      paddingTop: '26vh'
+    }
   },
   title: {
     display: 'inline',
     fontSize: '1.5em',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontFamily: '"Montserrat", sans-serif'
+  },
+  description: {
+    fontSize: '1em',
+    textAlign: 'left',
+    width: '85%',
+    margin: '0 auto 10px auto',
+    height: '22vh',
+    overflow: 'scroll'
   },
   logoItem: {
     float: 'left',
@@ -85,9 +98,10 @@ const styles = StyleSheet.create({
   },
   link: {
     color: 'rgb(255,150,150)',
-    fontSize: '1.1em',
+    fontSize: '1em',
     marginBottom: '20px',
-    textDecoration: 'underline'
+    textDecoration: 'underline',
+    fontFamily: '"Montserrat", sans-serif'
   },
   linkList: {
     marginBottom: '70px',

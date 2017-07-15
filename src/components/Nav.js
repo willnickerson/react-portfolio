@@ -50,8 +50,11 @@ class Nav extends Component {
 
 const styles = StyleSheet.create({
   navList: {
-    fontSize: '.9em',
-    marginTop: '8px'
+    fontSize: '1.05em',
+    marginTop: '8px',
+    '@media (min-width: 360px)': {
+      fontSize: '1.2em'
+    }
   }
 });
 

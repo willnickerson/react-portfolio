@@ -17,5 +17,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     margin: '0 auto 0 auto',
     width: '100%',
+    fontFamily: '"Montserrat", sans-serif',
+
+    '@media (min-width: 360px)': {
+      fontSize: '2em',
+      width: '90%'
+    }
   }
 });

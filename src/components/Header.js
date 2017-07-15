@@ -5,7 +5,7 @@ import Nav from './Nav';
 
 export default function Header(props) {
   return (
-    <div className={css(styles.header)}>
+    <div className={css(styles.header, styles.headerBigPhone)}>
       <Nav/>
       <ul className={css(styles.socials)}>
         <li className={css(styles.socialItem)}>
@@ -22,7 +22,6 @@ export default function Header(props) {
 
 const styles = StyleSheet.create({
   header: {
-    height: '27vh',
     width: '100%',
     position: 'fixed',
     top: 0,
@@ -30,7 +29,7 @@ const styles = StyleSheet.create({
   },
   socials: {
     float: 'right',
-    fontSize: '1.2em',
+    fontSize: '1.3em',
     color: 'white',
     margin: '6%'
   },

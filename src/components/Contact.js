@@ -19,17 +19,19 @@ export default function Contact(props) {
 
 const styles = StyleSheet.create({
   text: {
-    fontsize: '1.7em',
+    fontSize: '1.5em',
     fontWeight: 'bold',
     width: '80%',
-    margin: '0 auto 30px auto'
+    margin: '0 auto 30px auto',
+    fontFamily: '"Montserrat", sans-serif'
   },
   emailButton: {
     border: '2px solid white',
     padding: '15px 20px',
     borderRadius: '5%',
     fontStyle: 'italic',
-    marginTop: '25px'
+    marginTop: '25px',
+    fontFamily: '"Crimson text", serif',
   },
   arrow: {
     opacity: 0,
@@ -44,7 +46,7 @@ const styles = StyleSheet.create({
     width: '100%',
     position: 'absolute',
     bottom: '10px',
-    fontSize: '.75em',
+    fontSize: '1em',
   },
   copywrite: {
     marginTop: '25px',

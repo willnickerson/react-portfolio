@@ -22,6 +22,13 @@ const styles = StyleSheet.create({
 
   logo: {
     width: '45%',
-    marginTop: '40%'
+    marginTop: '40%',
+
+    '@media (min-width: 350px)': {
+      width: '50%',
+      marginTop: '38%',
+    }
+  },
+  logoBigPhone: {
   }
 });
