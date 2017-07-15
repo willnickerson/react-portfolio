@@ -1,31 +1,61 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import Knob from 'react-canvas-knob';
+import DownButton from './DownButton';
+import { StyleSheet, css } from 'aphrodite';
 
 class Rain extends Component {
+
   constructor(props) {
     super(props);
-  
+
     this.state =  { 
       numDrops: 3,
-      showMessage: false
+      message: <DownButton text="Turn up the rain" anchor="#Landing" arrowNotVisible={true}/>,
+      navMessage: (
+        <DownButton text="More about me" anchor="#About"/>
+      ),
+      showMessage: true,
+      seenLanding: false
     };
   }
 
   componentDidMount() {
     this.createRain();
+    this.testScroll();
+  }
+
+  learnClicked = () => {
+    this.setState({seenLanding: true});
+  }
+
+  handleChange = newValue => {
+    this.setState({numDrops: newValue});
+  };
+
+  onChangeEnd = () => {
+    this.setState({showMessage: false});
+    this.createRain();
+  }
+
+  testScroll = ev => {
+    window.onscroll = () => {
+      if(window.pageYOffset < 20) {
+        this.createRain();
+      } else {
+        this.stopRain();
+      }
+    };
   }
 
   randRange(minNum, maxNum) {
     return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
   }
-  
+ 
   createRain = () => {
-    const rainSection = ReactDOM.findDOMNode(this.refs.Rain);
-
-    while(rainSection.hasChildNodes()) {
-      rainSection.removeChild(rainSection.lastChild);
-    }
+    this.stopRain();
+    const rainSection = document.getElementById('Rain');
+    // const rainSection = ReactDOM.findDOMNode(this.refs.Rain);
 
     for(let i = 1; i < this.state.numDrops * 150; i++) {
       const dropLeft = this.randRange(0, 1600);
@@ -43,28 +73,25 @@ class Rain extends Component {
     }
   };
 
-  handleChange = newValue => {
-    this.setState({numDrops: newValue});
-  };
-
-  onChangeEnd = () => {
-    this.setState({showMessage: true});
-    this.createRain();
+  stopRain = () => {
+    const rainSection = document.getElementById('Rain');
+    // const rainSection = ReactDOM.findDOMNode(this.refs.Rain);
+    while(rainSection.hasChildNodes()) {
+      rainSection.removeChild(rainSection.lastChild);
+    }
   }
-
-
 
   render() {
     return (
-      <div className="Rain">
-        <div ref="Rain"/>
-        <Knob
+      <div className={css(styles.rainControl)}>
+        <div ref="Rain" id="Rain"/>
+        <Knob className={css(styles.knob)}
           value={this.state.numDrops}
           onChange={this.handleChange}
           onChangeEnd={this.onChangeEnd}
           step={.1}
-          width={75}
-          height={75}
+          width={90}
+          height={90}
           disableTextInput={true}
           bgColor={'white'}
           fgColor={'red'}
@@ -72,10 +99,19 @@ class Rain extends Component {
           min={0}
           max={11}
         />
-        {this.state.showMessage ? <p>Learn more about what I do</p>: <p>From a scale of 1 to 11, how miserable is it outside?</p>}
+        {this.state.showMessage ? 
+          <h4>{this.state.message}</h4> :
+          <h4>{this.state.navMessage}</h4>
+        }
       </div>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  rainControl: {
+    marginTop: '25px'
+  }
+});
 
 export default Rain;

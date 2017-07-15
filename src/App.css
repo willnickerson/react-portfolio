@@ -1,43 +1,138 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  margin-top: 16%;
-  width: 15%;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 
 html {
-  height: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
-background: #222;
-overflow:hidden;
-color: white;
-font-size: 20px;
+  background: #222;
+  color: white;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.Rain {
-  margin-top: 50px;
+p {
+  font-family: 'Crimson text', serif; 
 }
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+h4 {
+  margin-bottom: 0px;
+}
+
+
+.App {
+  text-align: center;
+  position: relative;
+}
+
+.Page {
+  padding-top: 29vh;
+  height: 71vh;
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+@media all and (min-width: 360px) {
+  .Page {
+    padding-top: 26vh;
+    height: 74vh;
+  }
+}
+
+@media all and (min-width: 600px) {
+  .Page {
+    width: 80%;
+  }
+}
+
+.Clearfix {
+  clear: both;
+}
+
+/* hamburger nav */
+
+.Collapsible {
+  float: left;
+  text-align: left;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  margin: 6%;
+} 
+
+/*slider */
+
+.slick-slider {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.slick-slide .project-image {
+  display: block;
+  width: 95%;
+  margin: 25px auto 15px auto;
+  outline: 1px solid white;
+}
+
+.slick-slide p {
+  text-align: left;
+  width: 85%;
+  margin: 0 auto 10px auto;
+  height: 22vh;
+  overflow: scroll;
+}
+
+.slick-next {
+  right: 0px;
+  top: 25%;
+  z-index: 1000;
+}
+
+.slick-prev {
+  top: 25%;
+  left: -5px;
+  z-index: 1000;
+}
+
+.slick-prev:before, .slick-next:before {
+  font-size: 22px;
+}
+
+.slick-dots li button:before {
+  font-size: 8px;
+}
+
+.slick-dots li.slick-active button:before {
+    opacity: 1;
+    color: white;
+}
+
+.slick-dots {
+  bottom: -25px;
+}
+
+
+
+
+/* rain drop styles */
 
 .drop {
   background:-webkit-gradient(linear,0% 0%,0% 100%, from(rgba(13,52,58,1) ), to(rgba(255,255,255,0.5))  );
@@ -64,3 +159,39 @@ font-size: 20px;
 }
 
 
+/*icons*/
+
+.icon-github:before {
+  content: "\eab0";
+}
+
+.icon-linkedin:before {
+  content: "\eac9";
+}
+
+
+ /* ::-webkit-scrollbar {
+    -webkit-appearance: none; 
+    width: 7px;
+} 
+
+ ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,0);
+     -webkit-box-shadow: 0 0 1px rgba(255,255,255,0); 
+} */
+
+/* Down arrow */
+
+/* .Down-Button h4 {
+  opacity: 0;
+  transition: all .5s ease;
+}
+
+.Down-Button:hover {
+  opacity: 1;
+}
+
+.Down-Button:hover h4 {
+  opacity: 1;
+} */

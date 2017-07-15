@@ -1,15 +1,38 @@
 import React from 'react';
-import logo from './black-coffee-cup.svg';
 import './App.css';
-import Rain from './components/Rain';
+import Landing from './components/Landing';
+import About from './components/About';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
+import Header from './components/Header';
+import { StyleSheet, css } from 'aphrodite';
 
 
 export default function App(props) {
   return (
     <div className="App">
-      <img src={logo} className="App-logo" alt="logo" />
-      <Rain/>
+      <Header/>
+      <Landing/>
+      <hr className={css(styles.pageBreak)}/>
+      <About/>
+      <hr className={css(styles.pageBreak)}/>
+      <Projects/>
+      <hr className={css(styles.pageBreak)}/>
+      <Contact/>
     </div>
   );
 }
+
+const styles = StyleSheet.create({
+  pageBreak: {
+    width: '70%',
+    border: 'none',
+    margin: '40px auto',
+    height: '1px',
+    backgroundColor: 'white'
+  }
+});
+
+
+
 
