@@ -26,8 +26,29 @@ const styles = StyleSheet.create({
 
     '@media (min-width: 350px)': {
       width: '50%',
-      marginTop: '38%',
-    }
+      marginTop: '38%'
+    },
+    '@media (min-width: 600px)': {
+      width: '22%',
+      marginTop: '20%' 
+    },
+    '@media (min-width: 700px)': {
+      width: '20%',
+      marginTop: '20%' 
+    },
+    '@media (min-width: 850px)': {
+      marginTop: '15%'
+    },
+    '@media (min-width: 960px)': {
+      width: '18%',
+    },
+    '@media (min-width: 1050px)': {
+      width: '18%',
+      marginTop: '12%'
+    },
+    '@media (min-width: 1150px)': {
+      width: '15%'
+    },
   },
   logoBigPhone: {
   }
