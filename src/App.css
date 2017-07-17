@@ -23,7 +23,7 @@ html {
 }
 
 body {
-  background: #222;
+   background: #222; 
   color: white;
   font-size: 20px;
   font-family: 'Mister Pixel', sans-serif;
@@ -42,7 +42,7 @@ a {
 
 a:hover {
   cursor: pointer;
-  color: #f44141
+  color: rgb(255,40,0);
 }
 
 

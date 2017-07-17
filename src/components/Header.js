@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     marginLeft: '15px',
     transition: 'all .35s ease',
     ':hover': {
-      color: '#f44141'
+      color: '#FF2800'
     }
   }
 });

@@ -97,7 +97,7 @@ class Rain extends Component {
           height={90}
           disableTextInput={true}
           bgColor={'white'}
-          fgColor={'#f44141'}
+          fgColor={'rgb(255,40,0)'}
           thickness={.08}
           min={0}
           max={11}
