@@ -11,9 +11,10 @@ class Rain extends Component {
 
     this.state =  { 
       numDrops: 3,
+      //put something better for the rain text
       message: <DownButton text="Turn up the rain" anchor="#Landing" arrowNotVisible={true}/>,
       navMessage: (
-        <DownButton text="More about me" anchor="#About"/>
+        <DownButton text="About" anchor="#About"/>
       ),
       showMessage: true,
       seenLanding: false
@@ -81,6 +82,8 @@ class Rain extends Component {
     }
   }
 
+  //curve the text around the circle
+  //change message based on the value of the knob
   render() {
     return (
       <div className={css(styles.rainControl)}>
@@ -94,10 +97,11 @@ class Rain extends Component {
           height={90}
           disableTextInput={true}
           bgColor={'white'}
-          fgColor={'red'}
+          fgColor={'#f44141'}
           thickness={.08}
           min={0}
           max={11}
+          displayInput={false}
         />
         {this.state.showMessage ? 
           <h4>{this.state.message}</h4> :

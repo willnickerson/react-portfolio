@@ -31,10 +31,17 @@ const styles = StyleSheet.create({
     float: 'right',
     fontSize: '1.3em',
     color: 'white',
-    margin: '6%'
+    margin: '6%',
+    '@media (min-width: 600px)': {
+      margin: '3%'
+    }
   },
   socialItem: {
     display: 'inline-block',
     marginLeft: '15px',
+    transition: 'all .35s ease',
+    ':hover': {
+      color: '#f44141'
+    }
   }
 });

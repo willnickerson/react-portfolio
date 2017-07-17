@@ -23,7 +23,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     width: '80%',
     margin: '0 auto 30px auto',
-    fontFamily: '"Montserrat", sans-serif'
+    fontFamily: '"Montserrat", sans-serif',
+    '@media (min-width: 600px)': {
+      marginBottom: '60px'
+    }
   },
   emailButton: {
     border: '2px solid white',

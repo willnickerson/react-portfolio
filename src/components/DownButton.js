@@ -38,7 +38,8 @@ const styles = StyleSheet.create({
   },
   hover: {
     ':hover': {
-      opacity: 1
+      opacity: 1,
+      color: 'white'
     }
   },
   notVisible: {

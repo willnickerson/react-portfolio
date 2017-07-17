@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import Slider from 'react-slick';
 import DownButton from './DownButton';
 import { StyleSheet, css } from 'aphrodite';
-import angularLogo from '../angular-icon.svg';
-import mongoLogo from '../MongoDB_Logo.png';
-import nodeLogo from '../Node.js-logo.svg';
-import expressLogo from '../express-logo.svg';
 
 class Projects extends Component {
   render() {
@@ -58,7 +54,7 @@ class Projects extends Component {
             <img className="project-image" src="http://res.cloudinary.com/lejipni8p/image/upload/c_crop,g_north,h_1310,w_2560/v1499893316/Screen_Shot_2017-07-12_at_2.00.57_PM_x63cpk.png" alt="#"/>
           </div>
         </Slider>
-        <DownButton text="Contact Me!" anchor="#Contact"/>
+        <DownButton text="Contact" anchor="#Contact"/>
       </div>
     );
   }
@@ -73,13 +69,16 @@ const styles = StyleSheet.create({
     '@media (min-width: 360px)': {
       height: '74vh',
       paddingTop: '26vh'
+    },
+    '@media (min-width: 600px)': {
+      height: '85vh',
+      paddingTop: '13vh'
     }
   },
   title: {
     display: 'inline',
     fontSize: '1.5em',
-    fontWeight: 'bold',
-    fontFamily: '"Montserrat", sans-serif'
+    fontFamily: '"Mister Pixel", sans-serif'
   },
   description: {
     fontSize: '1em',
@@ -87,7 +86,12 @@ const styles = StyleSheet.create({
     width: '85%',
     margin: '0 auto 10px auto',
     height: '22vh',
-    overflow: 'scroll'
+    // overflow: 'scroll',
+    overflow: '-moz-scrollbars-vertical', 
+    overflowY: 'scroll',
+    '@media (min-width: 600px)': {
+      height: '12vh'
+    }
   },
   logoItem: {
     float: 'left',
@@ -97,10 +101,10 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   link: {
-    color: 'rgb(255,150,150)',
+    color: '#fcb9ca',
     fontSize: '1em',
     marginBottom: '20px',
-    textDecoration: 'underline',
+    // textDecoration: 'underline',
     fontFamily: '"Montserrat", sans-serif'
   },
   linkList: {

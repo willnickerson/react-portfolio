@@ -1,5 +1,22 @@
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
+ @font-face {
+  font-family: 'Mister Pixel';
+  src: 
+    local('Mister Pixel'),
+    local('Mister-Pixel-Regular'),
+    url('./fonts/Mister-Pixel-Regular.otf');
+}; 
+
+/* @font-face {
+  font-family: 'Blocus';
+  src: 
+    local('Blocus'),
+    local('Blocus-Regular'),
+    url("./fonts/blocuswebfont.woff") format("woff"),
+    url('./fonts/blocuswebfont.ttf') format('true type');
+}; */
+
 
 html {
   -webkit-font-smoothing: antialiased;
@@ -9,20 +26,23 @@ body {
   background: #222;
   color: white;
   font-size: 20px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Mister Pixel', sans-serif;
+  letter-spacing: 1px;
 }
 
 p {
-  font-family: 'Crimson text', serif; 
+  font-family: 'Abel', sans-serif;
 }
 
 a {
   color: white;
   text-decoration: none;
+  transition: all .35s ease;
 }
 
 a:hover {
   cursor: pointer;
+  color: #f44141
 }
 
 
@@ -50,18 +70,6 @@ h4 {
   position: relative;
 }
 
-@media all and (min-width: 360px) {
-  .Page {
-    padding-top: 26vh;
-    height: 74vh;
-  }
-}
-
-@media all and (min-width: 600px) {
-  .Page {
-    width: 80%;
-  }
-}
 
 .Clearfix {
   clear: both;
@@ -169,6 +177,27 @@ h4 {
   content: "\eac9";
 }
 
+@media all and (min-width: 360px) {
+  .Page {
+    padding-top: 26vh;
+    height: 74vh;
+  }
+}
+
+@media all and (min-width: 600px) {
+  .Page {
+    width: 80%;
+  }
+  .slick-slider {
+    width: 80%;
+  }
+
+  .slick-slide .project-image {
+    width: 85%;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
 
  /* ::-webkit-scrollbar {
     -webkit-appearance: none; 

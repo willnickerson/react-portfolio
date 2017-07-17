@@ -41,10 +41,10 @@ const styles = StyleSheet.create({
     },
     '@media (min-width: 960px)': {
       width: '18%',
+      marginTop: '12%'
     },
     '@media (min-width: 1050px)': {
-      width: '18%',
-      marginTop: '12%'
+      marginTop: '10%',
     },
     '@media (min-width: 1150px)': {
       width: '15%'
