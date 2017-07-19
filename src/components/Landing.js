@@ -1,13 +1,14 @@
 import React from 'react';
-import logo from '../black-coffee-cup.svg';
 import Rain from './Rain';
 import { StyleSheet, css } from 'aphrodite';
 
 export default function Landing(props) {
   return (
     <div id="Landing" className={css(styles.landingPage)}>
-      <img src={logo} className={css(styles.logo)} alt="#" />
-      <Rain/>
+      <div className={css(styles.cupContainer)}>
+        {/* <img src={logo} className={css(styles.logo)} alt="#" /> */}
+        <Rain/>
+      </div>
     </div>
   );
 }
@@ -19,10 +20,13 @@ const styles = StyleSheet.create({
     position: 'relative',
     overflow: 'hidden'
   },
-
+  cupContainer: {
+    marginTop: '29vh',
+    marginBottom: '10vh',
+  },
   logo: {
     width: '45%',
-    marginTop: '40%',
+    // marginTop: '40%',
 
     '@media (min-width: 350px)': {
       width: '50%',

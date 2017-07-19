@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
   },
   navList: {
     fontSize: '1.05em',
+    width: '100vw',
     marginTop: '8px',
     '@media (min-width: 360px)': {
       fontSize: '1.2em'

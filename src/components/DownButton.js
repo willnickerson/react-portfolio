@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Scrollchor from 'react-scrollchor';
-import downArrow from '../down-arrow.svg';
+import downArrow from '../assets/images/down-arrow.svg';
 import { StyleSheet, css } from 'aphrodite';
 
 const DownButton = props => {
@@ -25,6 +25,10 @@ DownButton.propTypes = {
 
 const styles = StyleSheet.create({
   downButton: {
+    paddingBottom: '44px',
+    '@media (min-width: 450px)': {
+      paddingBottom: 0
+    },
     position: 'absolute',
     bottom: 0,
     textAlign: 'center',

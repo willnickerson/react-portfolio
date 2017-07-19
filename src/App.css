@@ -5,7 +5,7 @@
   src: 
     local('Mister Pixel'),
     local('Mister-Pixel-Regular'),
-    url('./fonts/Mister-Pixel-Regular.otf');
+    url('./assets/fonts/Mister-Pixel-Regular.otf');
 }; 
 
 /* @font-face {
@@ -13,8 +13,8 @@
   src: 
     local('Blocus'),
     local('Blocus-Regular'),
-    url("./fonts/blocuswebfont.woff") format("woff"),
-    url('./fonts/blocuswebfont.ttf') format('true type');
+    url("./assets/fonts/blocuswebfont.woff") format("woff"),
+    url('./assets/fonts/blocuswebfont.ttf') format('true type');
 }; */
 
 
@@ -197,6 +197,11 @@ h4 {
     margin-top: 0;
     margin-bottom: 0;
   }
+}
+
+
+.header-background {
+   background-color: #222;
 }
 
  /* ::-webkit-scrollbar {

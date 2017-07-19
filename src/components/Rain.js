@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import Knob from 'react-canvas-knob';
 import DownButton from './DownButton';
 import { StyleSheet, css } from 'aphrodite';
+import sadFace from '../assets/svg/sad.svg';
+import happyFace from '../assets/svg/happy.svg';
+import cryingFace from '../assets/svg/crying.svg';
 
 class Rain extends Component {
 
@@ -11,13 +14,10 @@ class Rain extends Component {
 
     this.state =  { 
       numDrops: 3,
-      //put something better for the rain text
-      message: <DownButton text="Turn up the rain" anchor="#Landing" arrowNotVisible={true}/>,
+      message: 'Turn up the rain',
       navMessage: (
         <DownButton text="About" anchor="#About"/>
-      ),
-      showMessage: true,
-      seenLanding: false
+      )
     };
   }
 
@@ -35,8 +35,28 @@ class Rain extends Component {
   };
 
   onChangeEnd = () => {
-    this.setState({showMessage: false});
+    if(this.state.numDrops > 5) {
+      this.setState({ message: 'Turn down the rain'});
+    } else {
+      this.setState({ message: 'Turn up the rain'});
+    }
     this.createRain();
+  }
+
+  displayInput = () => {
+    if(this.state.numDrops < 4) {
+      return (
+        <img className={css(styles.emoticon)} src={happyFace} alt=": )"/>
+      );
+    } else if(this.state.numDrops <= 7) {
+      return (
+        <img className={css(styles.emoticon)} src={sadFace} alt=": ("/>
+      );
+    } else {
+      return (
+        <img className={css(styles.emoticon)} src={cryingFace} alt=":'("/>
+      );
+    }
   }
 
   testScroll = ev => {
@@ -56,7 +76,6 @@ class Rain extends Component {
   createRain = () => {
     this.stopRain();
     const rainSection = document.getElementById('Rain');
-    // const rainSection = ReactDOM.findDOMNode(this.refs.Rain);
 
     for(let i = 1; i < this.state.numDrops * 150; i++) {
       const dropLeft = this.randRange(0, 1600);
@@ -76,7 +95,6 @@ class Rain extends Component {
 
   stopRain = () => {
     const rainSection = document.getElementById('Rain');
-    // const rainSection = ReactDOM.findDOMNode(this.refs.Rain);
     while(rainSection.hasChildNodes()) {
       rainSection.removeChild(rainSection.lastChild);
     }
@@ -88,33 +106,47 @@ class Rain extends Component {
     return (
       <div className={css(styles.rainControl)}>
         <div ref="Rain" id="Rain"/>
-        <Knob className={css(styles.knob)}
-          value={this.state.numDrops}
-          onChange={this.handleChange}
-          onChangeEnd={this.onChangeEnd}
-          step={.1}
-          width={90}
-          height={90}
-          disableTextInput={true}
-          bgColor={'white'}
-          fgColor={'rgb(255,40,0)'}
-          thickness={.08}
-          min={0}
-          max={11}
-          displayInput={false}
-        />
-        {this.state.showMessage ? 
-          <h4>{this.state.message}</h4> :
-          <h4>{this.state.navMessage}</h4>
-        }
+        <h4 className={css(styles.message)}>{this.state.message}</h4>
+        <div className={css(styles.knob)}>
+          <Knob className={css(styles.knob)}
+            value={this.state.numDrops}
+            onChange={this.handleChange}
+            onChangeEnd={this.onChangeEnd}
+            step={.1}
+            width={180}
+            height={180} 
+            disableTextInput={true}
+            bgColor={'white'}
+            fgColor={'rgb(255,40,0)'}
+            thickness={.08}
+            min={0}
+            max={11}
+            displayInput={false}
+            displayCustom={this.displayInput}
+          />
+        </div>
+
+        <DownButton text="About" anchor="#About"/>
       </div>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  rainControl: {
-    marginTop: '25px'
+  message: {
+    fontSize: '1.6em',
+  },
+  knob: {
+    margin: '25px auto 0 auto',
+    width: '180px',
+    position: 'relative'
+  },
+  emoticon: {
+    position: 'absolute',
+    width: '180px',
+    top: 0,
+    left: 0,
+    zIndex: '-1',
   }
 });
 
