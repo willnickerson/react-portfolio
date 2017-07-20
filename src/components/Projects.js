@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   sliderPage: {
     width: '100%',
     height: '71vh',
-    paddingTop: '29vh',
+    paddingTop: '26vh',
     position: 'relative',
     '@media (min-width: 360px)': {
       height: '74vh',
@@ -77,16 +77,15 @@ const styles = StyleSheet.create({
   },
   title: {
     display: 'inline',
-    fontSize: '1.5em',
-    fontFamily: '"Mister Pixel", sans-serif'
+    fontSize: '1.3em',
+    fontFamily: '"Metal Lord", sans-serif'
   },
   description: {
     fontSize: '1em',
     textAlign: 'left',
     width: '85%',
-    margin: '0 auto 10px auto',
-    height: '22vh',
-    // overflow: 'scroll',
+    margin: '0 auto',
+    height: '18vh',
     overflow: '-moz-scrollbars-vertical', 
     overflowY: 'scroll',
     '@media (min-width: 600px)': {

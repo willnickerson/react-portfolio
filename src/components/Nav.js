@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
   },
   navList: {
     fontSize: '1.05em',
+    fontFamily: '"Maiden", "Raleway", sans-serif',
     width: '100vw',
     marginTop: '8px',
     '@media (min-width: 360px)': {

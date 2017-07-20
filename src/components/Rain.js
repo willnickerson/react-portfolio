@@ -13,7 +13,7 @@ class Rain extends Component {
     super(props);
 
     this.state =  { 
-      numDrops: 3,
+      numDrops: 7,
       message: 'Turn up the rain',
       navMessage: (
         <DownButton text="About" anchor="#About"/>
@@ -106,7 +106,7 @@ class Rain extends Component {
     return (
       <div className={css(styles.rainControl)}>
         <div ref="Rain" id="Rain"/>
-        <h4 className={css(styles.message)}>{this.state.message}</h4>
+        {/* <h4 className={css(styles.message)}>{this.state.message}</h4>
         <div className={css(styles.knob)}>
           <Knob className={css(styles.knob)}
             value={this.state.numDrops}
@@ -124,7 +124,7 @@ class Rain extends Component {
             displayInput={false}
             displayCustom={this.displayInput}
           />
-        </div>
+        </div> */}
 
         <DownButton text="About" anchor="#About"/>
       </div>

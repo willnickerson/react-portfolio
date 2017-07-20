@@ -25,16 +25,15 @@ DownButton.propTypes = {
 
 const styles = StyleSheet.create({
   downButton: {
-    paddingBottom: '44px',
-    '@media (min-width: 450px)': {
-      paddingBottom: 0
-    },
+    fontWeight: 'bold',
     position: 'absolute',
-    bottom: 0,
+    bottom: '44px',
     textAlign: 'center',
     width: '100%',
-    opacity: .7,
-    fontSize: '1em',
+    opacity: 1,
+    lineHeight: '120%',
+    fontSize: '1.7em',
+    letterSpacing: '2px'
   },
   downArrow: {
     height: '40px',
