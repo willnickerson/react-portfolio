@@ -20,14 +20,16 @@ html {
 }
 
 body {
-   background: #222; 
+  background: #222; 
   color: white;
   font-size: 20px;
+  padding-bottom: 44px; 
 }
 
 h1, h2, h3, h4 {
   font-family: 'Metal Lord', sans-serif;
   letter-spacing: 3px; 
+  margin-top: 0;
 }
 
 p {
@@ -62,8 +64,9 @@ h4 {
 }
 
 .Page {
-  padding-top: 26vh;
-  height: cacl(71vh - 44px);
+  padding-top: 25vh;
+  height: calc(71vh - 44px);
+  padding-bottom: 44px;
   width: 90%;
   margin: 0 auto;
   overflow: hidden;
@@ -95,9 +98,9 @@ h4 {
 
 .slick-slide .project-image {
   display: block;
-  width: 95%;
+  width: 100%;
   margin: 10px auto 15px auto;
-  outline: 1px solid white;
+  border: 1px solid white;
 }
 
 .slick-slide p {
@@ -134,7 +137,7 @@ h4 {
 }
 
 .slick-dots {
-  bottom: -25px;
+  bottom: -10px;
 }
 
 

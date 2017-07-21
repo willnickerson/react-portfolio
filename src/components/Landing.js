@@ -2,6 +2,7 @@ import React from 'react';
 import Rain from './Rain';
 import { StyleSheet, css } from 'aphrodite';
 import logo from '../assets/images/black-coffee-cup.svg';
+import DownButton from './DownButton';
 
 export default function Landing(props) {
   return (
@@ -10,6 +11,7 @@ export default function Landing(props) {
          <img src={logo} className={css(styles.logo)} alt="#" /> 
          <Rain/> 
       </div>
+       <DownButton text="About" anchor="#About"/>  
     </div>
   );
 }
@@ -22,12 +24,12 @@ const styles = StyleSheet.create({
     overflow: 'hidden'
   },
   cupContainer: {
-    marginTop: '26vh',
+    marginTop: '25vh',
     marginBottom: '26vh',
     height: '48vh',
   },
   logo: {
-    height: '100%',
+    height: '90%',
 
     // '@media (min-width: 350px)': {
     //   width: '50%',

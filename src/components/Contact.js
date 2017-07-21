@@ -9,7 +9,7 @@ export default function Contact(props) {
       <div className={css(styles.emailButton)}>
         <a href="mailto:willnickersonpdx@gmail.com">
           Send me an Email
-          {/* <span className={css(styles.arrow, styles.arrowHover)}> &#8594;</span> */}
+          <span className={css(styles.arrow, styles.arrowHover)}> &#8594;</span> 
         </a>
       </div>
       <footer className={css(styles.footer)}>
@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
     padding: '15px 20px',
     borderRadius: '5%',
     fontSize: '1.3em',
-    fontFamily: '"Maiden", serif',
+    fontFamily: '"Metal Lord", sans-serif',
+    fontStyle: 'italic'
   },
   arrow: {
     opacity: 1,

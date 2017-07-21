@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 // import ReactDOM from 'react-dom';
-import Knob from 'react-canvas-knob';
+// import Knob from 'react-canvas-knob';
 import DownButton from './DownButton';
 import { StyleSheet, css } from 'aphrodite';
 import sadFace from '../assets/svg/sad.svg';
 import happyFace from '../assets/svg/happy.svg';
 import cryingFace from '../assets/svg/crying.svg';
+import Slider, { Range } from 'rc-slider';
+import 'rc-slider/assets/index.css';
+// const createSliderWithTooltip = Slider.createSliderWithTooltip;
 
 class Rain extends Component {
 
@@ -106,27 +109,21 @@ class Rain extends Component {
     return (
       <div className={css(styles.rainControl)}>
         <div ref="Rain" id="Rain"/>
-        {/* <h4 className={css(styles.message)}>{this.state.message}</h4>
-        <div className={css(styles.knob)}>
-          <Knob className={css(styles.knob)}
-            value={this.state.numDrops}
-            onChange={this.handleChange}
-            onChangeEnd={this.onChangeEnd}
-            step={.1}
-            width={180}
-            height={180} 
-            disableTextInput={true}
-            bgColor={'white'}
-            fgColor={'rgb(255,40,0)'}
-            thickness={.08}
+          <div className={css(styles.knob)}>
+          <img className={css(styles.emoticonLeft)} src={happyFace} alt=""/>
+          <Slider className={css(styles.slider)}
+            defaultValue={this.state.numDrops}
             min={0}
             max={11}
-            displayInput={false}
-            displayCustom={this.displayInput}
+            step={.1}
+            onChange={this.handleChange}
+            onAfterChange={this.onChangeEnd} 
+            trackStyle={{backgroundColor: 'red', width: '50%'}}
+            handleStyle={{border: '2px solid #BBB' }}
           />
-        </div> */}
-
-        <DownButton text="About" anchor="#About"/>
+          <img className={css(styles.emoticonRight)} src={cryingFace} alt=""/>
+          <div className="Clearfix"></div>
+        </div>
       </div>
     );
   }
@@ -136,18 +133,25 @@ const styles = StyleSheet.create({
   message: {
     fontSize: '1.6em',
   },
+  slider: {
+    float: 'left',
+    width: 'calc(100% - 70px)'
+  },
   knob: {
-    margin: '25px auto 0 auto',
-    width: '180px',
+    margin: '35px auto 0 auto',
+    width: '65%',
     position: 'relative'
   },
-  emoticon: {
-    position: 'absolute',
-    width: '180px',
-    top: 0,
-    left: 0,
-    zIndex: '-1',
-  }
+  emoticonLeft: {
+    width: '25px',
+    float: 'left',
+    margin: '-5px 10px 0 0'
+  },
+  emoticonRight: {
+    width: '25px',
+    float: 'rigth',
+    margin: '-5px 0 0 10px'
+  },
 });
 
 export default Rain;

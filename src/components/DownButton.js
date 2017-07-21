@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   downButton: {
     fontWeight: 'bold',
     position: 'absolute',
-    bottom: '44px',
+    bottom: '25px',
     textAlign: 'center',
     width: '100%',
     opacity: 1,
