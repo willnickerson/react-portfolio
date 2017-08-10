@@ -137,7 +137,7 @@ h4 {
 }
 
 .slick-dots {
-  bottom: -10px;
+  bottom: -35px;
 }
 
 
@@ -202,9 +202,17 @@ h4 {
   }
 
   .slick-slide .project-image {
-    width: 85%;
-    margin-top: 0;
+    width: 95%;
+    margin-top: 20px;
     margin-bottom: 0;
+  }
+
+  .slick-next {
+    top: 50%;
+  }
+
+  .slick-prev {
+    top: 50%;
   }
 }
 

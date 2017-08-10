@@ -6,7 +6,10 @@
     "aphrodite": "^1.2.1",
     "rc-slider": "^8.2.0",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-collapsible": "^1.4.0",
+    "react-dom": "^15.6.1",
+    "react-scrollchor": "^4.0.0",
+    "react-slick": "^0.14.11"
   },
   "devDependencies": {
     "react-scripts": "1.0.10"

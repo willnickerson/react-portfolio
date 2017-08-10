@@ -42,7 +42,7 @@ class Nav extends Component {
               <li><Scrollchor to="#About" beforeAnimate={() => this.handleClick.bind(this)()}>About</Scrollchor></li>
               <li><Scrollchor to="#Projects" beforeAnimate={() => this.handleClick.bind(this)()}>Projects</Scrollchor></li>
               <li><Scrollchor to="#Contact" beforeAnimate={() => this.handleClick.bind(this)()}>Contact</Scrollchor></li>
-              <li><Scrollchor to="#Landing" beforeAnimate={() => this.handleClick.bind(this)()}>Rain</Scrollchor></li>
+              {/* <li><Scrollchor to="#Landing" beforeAnimate={() => this.handleClick.bind(this)()}>Rain</Scrollchor></li> */}
             </ul>
           </Collapsible>
           
@@ -51,7 +51,7 @@ class Nav extends Component {
             <li className={css(styles.mainNavItem)}><Scrollchor to="#About" beforeAnimate={() => this.handleClick.bind(this)()}>About</Scrollchor></li>
             <li className={css(styles.mainNavItem)}><Scrollchor to="#Projects" beforeAnimate={() => this.handleClick.bind(this)()}>Projects</Scrollchor></li>
             <li className={css(styles.mainNavItem)}><Scrollchor to="#Contact" beforeAnimate={() => this.handleClick.bind(this)()}>Contact</Scrollchor></li>
-            <li className={css(styles.mainNavItem)}><Scrollchor to="#Landing" beforeAnimate={() => this.handleClick.bind(this)()}>Rain</Scrollchor></li>
+            {/* <li className={css(styles.mainNavItem)}><Scrollchor to="#Landing" beforeAnimate={() => this.handleClick.bind(this)()}>Rain</Scrollchor></li> */}
         </ul>
       </div>
 
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   },
   navList: {
     fontSize: '1.05em',
-    fontFamily: '"Maiden", "Raleway", sans-serif',
+    fontFamily: '"Raleway", sans-serif',
     width: '100vw',
     marginTop: '8px',
     '@media (min-width: 360px)': {
@@ -84,9 +84,10 @@ const styles = StyleSheet.create({
     }
   },
   mainNavItem: {
+    fontFamily: '"Raleway", sans-serif',
     display: 'inline-block',
-    marginRight: '15px',
-    fontSize: '1em',
+    marginRight: '10px',
+    fontSize: '1.2em',
     marginTop: '0'
   }
 });

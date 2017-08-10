@@ -64,7 +64,7 @@ class Rain extends Component {
 
   testScroll = ev => {
     window.onscroll = () => {
-      if(window.pageYOffset < 20) {
+      if(window.pageYOffset >= window.innerHeight - 20 && window.pageYOffset < window.innerHeight + 200) {
         this.createRain();
       } else {
         this.stopRain();
@@ -103,8 +103,6 @@ class Rain extends Component {
     }
   }
 
-  //curve the text around the circle
-  //change message based on the value of the knob
   render() {
     return (
       <div className={css(styles.rainControl)}>
@@ -140,7 +138,11 @@ const styles = StyleSheet.create({
   knob: {
     margin: '35px auto 0 auto',
     width: '65%',
-    position: 'relative'
+    position: 'relative',
+    '@media (min-width: 600px)': {
+      width: '30%',
+      marginTop: '60px'
+    }
   },
   emoticonLeft: {
     width: '25px',

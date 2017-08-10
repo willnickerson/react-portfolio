@@ -21,33 +21,33 @@ class Projects extends Component {
               <p className={css(styles.description)}>
                 <span className={css(styles.title)}>Portamento. </span>
                 Social media meets the synthesizer. Share and discover sounds the you make on this MEAN stack application. 
-                <img className="project-image" src="http://res.cloudinary.com/lejipni8p/image/upload/c_crop,g_north,h_1310,w_2560/v1490814219/Screen_Shot_2017-03-24_at_5.03.32_PM_gsp3re.png" alt="#"/>
                 <ul className={css(styles.linkList)}>
                   <li><a className={css(styles.link)} href="https://portamento.herokuapp.com/#!/"> live site </a></li>
                   <li><a className={css(styles.link)} href=""> repos</a></li>
                 </ul>
+                <img className="project-image" src="http://res.cloudinary.com/lejipni8p/image/upload/c_crop,g_north,h_1310,w_2560/v1490814219/Screen_Shot_2017-03-24_at_5.03.32_PM_gsp3re.png" alt="#"/>
               </p> 
           </div>
           <div>
             <p className={css(styles.description)}>
               <span className={css(styles.title)}>Earth House. </span>
               An ecommerceand content management solution built for a local cold-pressed juice company using the MEAN stack.
-              <img className="project-image" src="http://res.cloudinary.com/lejipni8p/image/upload/c_crop,g_north,h_1310,w_2560/v1490814197/Screen_Shot_2017-03-24_at_5.05.17_PM_gunpnq.png" alt="#"/>
               <ul className={css(styles.linkList)}>
                 <li><a className={css(styles.link)} href="https://portamento.herokuapp.com/#!/"> live site</a></li>
                 <li><a className={css(styles.link)} href="">repos</a></li>
               </ul>
+              <img className="project-image" src="http://res.cloudinary.com/lejipni8p/image/upload/c_crop,g_north,h_1310,w_2560/v1490814197/Screen_Shot_2017-03-24_at_5.05.17_PM_gunpnq.png" alt="#"/>
             </p>
           </div>
           <div>
             <p className={css(styles.description)}>
               <span className={css(styles.title)}>React Juicer. </span>
               Make delicious juice recipices with my first full-stack React app!
-              <img className="project-image" src="http://res.cloudinary.com/lejipni8p/image/upload/c_crop,g_north,h_1310,w_2560/v1499893316/Screen_Shot_2017-07-12_at_2.00.57_PM_x63cpk.png" alt="#"/>
               <ul className={css(styles.linkList)}>
                 <li><a className={css(styles.link)} href="https://portamento.herokuapp.com/#!/">live site</a></li>
                 <li><a className={css(styles.link)} href="">repos</a></li>
               </ul>
+              <img className="project-image" src="http://res.cloudinary.com/lejipni8p/image/upload/c_crop,g_north,h_1310,w_2560/v1499893316/Screen_Shot_2017-07-12_at_2.00.57_PM_x63cpk.png" alt="#"/>
             </p>
           </div>
         </Slider>
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     },
     '@media (min-width: 600px)': {
       height: '85vh',
-      paddingTop: '13vh'
+      paddingTop: '15vh'
     }
   },
   title: {
@@ -86,7 +86,11 @@ const styles = StyleSheet.create({
     overflow: '-moz-scrollbars-vertical', 
     overflowY: 'scroll',
     '@media (min-width: 600px)': {
-      height: '12vh'
+      height: '45vh'
+    },
+    '@media (min-width: 850px)': {
+      height: 'auto',
+      width: '75%'
     }
   },
   logoItem: {

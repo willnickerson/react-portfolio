@@ -8,7 +8,7 @@ const DownButton = props => {
   return (
     <div className={css(styles.downButton, styles.hover)}>
         <Scrollchor to={props.anchor} afterAnimate={props.stopRain}>
-          <h4>{props.text}</h4>
+          <h4 className={css(styles.notRed)}>{props.text}</h4>
           {props.arrowNotVisible ? 
             <img className={css(styles.downArrow, styles.notVisible)} src={downArrow} alt="#"/>
             : <img className={css(styles.downArrow)} src={downArrow} alt="#"/>}
@@ -25,19 +25,28 @@ DownButton.propTypes = {
 
 const styles = StyleSheet.create({
   downButton: {
+    display: 'none',
     fontWeight: 'bold',
     position: 'absolute',
     bottom: '25px',
     textAlign: 'center',
     width: '100%',
-    opacity: 1,
+    opacity: .5,
     lineHeight: '120%',
-    fontSize: '1.7em',
-    letterSpacing: '2px'
+    fontSize: '1.5em',
+    letterSpacing: '2px',
+    '@media (min-width: 600px)': {
+      display: 'block'
+    }
   },
   downArrow: {
     height: '40px',
-    width: '40px'
+    width: '40px',
+  },
+  notRed: {
+    ':hover': {
+      color: 'white'
+    }
   },
   hover: {
     ':hover': {
