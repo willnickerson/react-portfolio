@@ -1,28 +1,50 @@
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 
+
+@font-face {
+  font-family: 'Metal Lord';
+  src: 
+    url('./assets/fonts/metal-lord.ttf');
+}
+
+@font-face {
+  font-family: 'Maiden';
+  src: 
+    url('./assets/fonts/maiden.ttf');
+}
+  
+
 html {
   -webkit-font-smoothing: antialiased;
 }
 
 body {
-  background: #222;
+  background: #222; 
   color: white;
   font-size: 20px;
-  font-family: 'Montserrat', sans-serif;
+  padding-bottom: 44px; 
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Metal Lord', sans-serif;
+  letter-spacing: 3px; 
+  margin-top: 0;
 }
 
 p {
-  font-family: 'Crimson text', serif; 
+  font-family: 'Raleway', sans-serif;
 }
 
 a {
   color: white;
   text-decoration: none;
+  transition: all .35s ease;
 }
 
 a:hover {
   cursor: pointer;
+  color: rgb(255,40,0);
 }
 
 
@@ -42,26 +64,15 @@ h4 {
 }
 
 .Page {
-  padding-top: 29vh;
-  height: 71vh;
+  padding-top: 25vh;
+  height: calc(71vh - 44px);
+  padding-bottom: 44px;
   width: 90%;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
 }
 
-@media all and (min-width: 360px) {
-  .Page {
-    padding-top: 26vh;
-    height: 74vh;
-  }
-}
-
-@media all and (min-width: 600px) {
-  .Page {
-    width: 80%;
-  }
-}
 
 .Clearfix {
   clear: both;
@@ -87,9 +98,9 @@ h4 {
 
 .slick-slide .project-image {
   display: block;
-  width: 95%;
-  margin: 25px auto 15px auto;
-  outline: 1px solid white;
+  width: 100%;
+  margin: 10px auto 15px auto;
+  border: 1px solid white;
 }
 
 .slick-slide p {
@@ -126,7 +137,7 @@ h4 {
 }
 
 .slick-dots {
-  bottom: -25px;
+  bottom: -35px;
 }
 
 
@@ -169,6 +180,46 @@ h4 {
   content: "\eac9";
 }
 
+@media all and (min-width: 360px) {
+  .Page {
+    padding-top: 26vh;
+    height: 74vh;
+  }
+}
+
+@media all and (min-width: 450px) {
+  .Page {
+    padding-bottom: 0;
+  }
+}
+
+@media all and (min-width: 600px) {
+  .Page {
+    width: 80%;
+  }
+  .slick-slider {
+    width: 80%;
+  }
+
+  .slick-slide .project-image {
+    width: 95%;
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+
+  .slick-next {
+    top: 50%;
+  }
+
+  .slick-prev {
+    top: 50%;
+  }
+}
+
+
+.header-background {
+   background-color: #222;
+}
 
  /* ::-webkit-scrollbar {
     -webkit-appearance: none; 

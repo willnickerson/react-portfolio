@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 // import ReactDOM from 'react-dom';
-import Knob from 'react-canvas-knob';
+// import Knob from 'react-canvas-knob';
 import DownButton from './DownButton';
 import { StyleSheet, css } from 'aphrodite';
+import sadFace from '../assets/svg/sad.svg';
+import happyFace from '../assets/svg/happy.svg';
+import cryingFace from '../assets/svg/crying.svg';
+import Slider, { Range } from 'rc-slider';
+import 'rc-slider/assets/index.css';
+// const createSliderWithTooltip = Slider.createSliderWithTooltip;
 
 class Rain extends Component {
 
@@ -10,13 +16,11 @@ class Rain extends Component {
     super(props);
 
     this.state =  { 
-      numDrops: 3,
-      message: <DownButton text="Turn up the rain" anchor="#Landing" arrowNotVisible={true}/>,
+      numDrops: 7,
+      message: 'Turn up the rain',
       navMessage: (
-        <DownButton text="More about me" anchor="#About"/>
-      ),
-      showMessage: true,
-      seenLanding: false
+        <DownButton text="About" anchor="#About"/>
+      )
     };
   }
 
@@ -34,13 +38,33 @@ class Rain extends Component {
   };
 
   onChangeEnd = () => {
-    this.setState({showMessage: false});
+    if(this.state.numDrops > 5) {
+      this.setState({ message: 'Turn down the rain'});
+    } else {
+      this.setState({ message: 'Turn up the rain'});
+    }
     this.createRain();
+  }
+
+  displayInput = () => {
+    if(this.state.numDrops < 4) {
+      return (
+        <img className={css(styles.emoticon)} src={happyFace} alt=": )"/>
+      );
+    } else if(this.state.numDrops <= 7) {
+      return (
+        <img className={css(styles.emoticon)} src={sadFace} alt=": ("/>
+      );
+    } else {
+      return (
+        <img className={css(styles.emoticon)} src={cryingFace} alt=":'("/>
+      );
+    }
   }
 
   testScroll = ev => {
     window.onscroll = () => {
-      if(window.pageYOffset < 20) {
+      if(window.pageYOffset >= window.innerHeight - 20 && window.pageYOffset < window.innerHeight + 200) {
         this.createRain();
       } else {
         this.stopRain();
@@ -55,7 +79,6 @@ class Rain extends Component {
   createRain = () => {
     this.stopRain();
     const rainSection = document.getElementById('Rain');
-    // const rainSection = ReactDOM.findDOMNode(this.refs.Rain);
 
     for(let i = 1; i < this.state.numDrops * 150; i++) {
       const dropLeft = this.randRange(0, 1600);
@@ -75,7 +98,6 @@ class Rain extends Component {
 
   stopRain = () => {
     const rainSection = document.getElementById('Rain');
-    // const rainSection = ReactDOM.findDOMNode(this.refs.Rain);
     while(rainSection.hasChildNodes()) {
       rainSection.removeChild(rainSection.lastChild);
     }
@@ -85,33 +107,53 @@ class Rain extends Component {
     return (
       <div className={css(styles.rainControl)}>
         <div ref="Rain" id="Rain"/>
-        <Knob className={css(styles.knob)}
-          value={this.state.numDrops}
-          onChange={this.handleChange}
-          onChangeEnd={this.onChangeEnd}
-          step={.1}
-          width={90}
-          height={90}
-          disableTextInput={true}
-          bgColor={'white'}
-          fgColor={'red'}
-          thickness={.08}
-          min={0}
-          max={11}
-        />
-        {this.state.showMessage ? 
-          <h4>{this.state.message}</h4> :
-          <h4>{this.state.navMessage}</h4>
-        }
+          <div className={css(styles.knob)}>
+          <img className={css(styles.emoticonLeft)} src={happyFace} alt=""/>
+          <Slider className={css(styles.slider)}
+            defaultValue={this.state.numDrops}
+            min={0}
+            max={11}
+            step={.1}
+            onChange={this.handleChange}
+            onAfterChange={this.onChangeEnd} 
+            trackStyle={{backgroundColor: 'red', width: '50%'}}
+            handleStyle={{border: '2px solid #BBB' }}
+          />
+          <img className={css(styles.emoticonRight)} src={cryingFace} alt=""/>
+          <div className="Clearfix"></div>
+        </div>
       </div>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  rainControl: {
-    marginTop: '25px'
-  }
+  message: {
+    fontSize: '1.6em',
+  },
+  slider: {
+    float: 'left',
+    width: 'calc(100% - 70px)'
+  },
+  knob: {
+    margin: '35px auto 0 auto',
+    width: '65%',
+    position: 'relative',
+    '@media (min-width: 600px)': {
+      width: '30%',
+      marginTop: '60px'
+    }
+  },
+  emoticonLeft: {
+    width: '25px',
+    float: 'left',
+    margin: '-5px 10px 0 0'
+  },
+  emoticonRight: {
+    width: '25px',
+    float: 'rigth',
+    margin: '-5px 0 0 10px'
+  },
 });
 
 export default Rain;

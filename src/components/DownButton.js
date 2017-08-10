@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Scrollchor from 'react-scrollchor';
-import downArrow from '../down-arrow.svg';
+import downArrow from '../assets/images/down-arrow.svg';
 import { StyleSheet, css } from 'aphrodite';
 
 const DownButton = props => {
   return (
     <div className={css(styles.downButton, styles.hover)}>
         <Scrollchor to={props.anchor} afterAnimate={props.stopRain}>
-          <h4>{props.text}</h4>
+          <h4 className={css(styles.notRed)}>{props.text}</h4>
           {props.arrowNotVisible ? 
             <img className={css(styles.downArrow, styles.notVisible)} src={downArrow} alt="#"/>
             : <img className={css(styles.downArrow)} src={downArrow} alt="#"/>}
@@ -25,20 +25,33 @@ DownButton.propTypes = {
 
 const styles = StyleSheet.create({
   downButton: {
+    display: 'none',
+    fontWeight: 'bold',
     position: 'absolute',
-    bottom: 0,
+    bottom: '25px',
     textAlign: 'center',
     width: '100%',
-    opacity: .7,
-    fontSize: '1em',
+    opacity: .5,
+    lineHeight: '120%',
+    fontSize: '1.5em',
+    letterSpacing: '2px',
+    '@media (min-width: 600px)': {
+      display: 'block'
+    }
   },
   downArrow: {
     height: '40px',
-    width: '40px'
+    width: '40px',
+  },
+  notRed: {
+    ':hover': {
+      color: 'white'
+    }
   },
   hover: {
     ':hover': {
-      opacity: 1
+      opacity: 1,
+      color: 'white'
     }
   },
   notVisible: {
