@@ -24,17 +24,14 @@ body {
   color: white;
   font-size: 20px;
   padding-bottom: 44px; 
+  font-family: 'Raleway', sans-serif;
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Metal Lord', sans-serif;
-  letter-spacing: 3px; 
   margin-top: 0;
 }
 
-p {
-  font-family: 'Raleway', sans-serif;
-}
+
 
 a {
   color: white;
@@ -93,33 +90,19 @@ h4 {
 
 .slick-slider {
   width: 90%;
+  position: relative;
   margin: 0 auto;
 }
 
-.slick-slide .project-image {
-  display: block;
-  width: 100%;
-  margin: 10px auto 15px auto;
-  border: 1px solid white;
-}
-
-.slick-slide p {
-  text-align: left;
-  width: 85%;
-  margin: 0 auto 10px auto;
-  height: 22vh;
-  overflow: scroll;
-}
-
 .slick-next {
-  right: 0px;
-  top: 25%;
+  right: -5px;
+  top: 35%;
   z-index: 1000;
 }
 
 .slick-prev {
-  top: 25%;
-  left: -5px;
+  top: 35%;
+  left: -10px;
   z-index: 1000;
 }
 
@@ -167,6 +150,13 @@ h4 {
 
 @keyframes fall {
   to {margin-top:900px;}
+}
+
+/* animate logo */
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 
@@ -221,28 +211,4 @@ h4 {
    background-color: #222;
 }
 
- /* ::-webkit-scrollbar {
-    -webkit-appearance: none; 
-    width: 7px;
-} 
 
- ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background-color: rgba(0,0,0,0);
-     -webkit-box-shadow: 0 0 1px rgba(255,255,255,0); 
-} */
-
-/* Down arrow */
-
-/* .Down-Button h4 {
-  opacity: 0;
-  transition: all .5s ease;
-}
-
-.Down-Button:hover {
-  opacity: 1;
-}
-
-.Down-Button:hover h4 {
-  opacity: 1;
-} */

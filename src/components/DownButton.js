@@ -7,8 +7,8 @@ import { StyleSheet, css } from 'aphrodite';
 const DownButton = props => {
   return (
     <div className={css(styles.downButton, styles.hover)}>
-        <Scrollchor to={props.anchor} afterAnimate={props.stopRain}>
-          <h4 className={css(styles.notRed)}>{props.text}</h4>
+        <Scrollchor to={props.anchor} afterAnimate={props.stopRain} className={css(styles.notRed)}>
+          <h4 className={css(styles.notRed, styles.text)}>{props.text}</h4>
           {props.arrowNotVisible ? 
             <img className={css(styles.downArrow, styles.notVisible)} src={downArrow} alt="#"/>
             : <img className={css(styles.downArrow)} src={downArrow} alt="#"/>}
@@ -26,17 +26,18 @@ DownButton.propTypes = {
 const styles = StyleSheet.create({
   downButton: {
     display: 'none',
-    fontWeight: 'bold',
     position: 'absolute',
-    bottom: '25px',
+    bottom: '0',
     textAlign: 'center',
     width: '100%',
-    opacity: .5,
-    lineHeight: '120%',
+    opacity: .7,
+    transition: 'all .5s ease',
     fontSize: '1.5em',
-    letterSpacing: '2px',
     '@media (min-width: 600px)': {
       display: 'block'
+    },
+    ':hover h4': {
+      opacity: 1
     }
   },
   downArrow: {
@@ -47,6 +48,12 @@ const styles = StyleSheet.create({
     ':hover': {
       color: 'white'
     }
+  },
+  text: {
+    fontFamily: '"Montserrat", sans-serif',
+    fontWeight: 'bold',
+    opacity: 0,
+    transition: 'all .5s ease'
   },
   hover: {
     ':hover': {
