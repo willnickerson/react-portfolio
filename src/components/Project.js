@@ -6,7 +6,7 @@ const Project = props => {
   return (
     <div className={css(styles.container)}>
       <p className={css(styles.description)}>
-        <a href={props.links[0].url}><span className={css(styles.title)}>{props.name}. </span></a>
+        <a target="_blank" href={props.links[0].url}><span className={css(styles.title)}>{props.name}. </span></a>
         {props.description} 
       </p> 
       <div className={css(styles.imgContainer)}>
@@ -15,7 +15,7 @@ const Project = props => {
           <ul className={css(styles.linkList)}>
             {props.links.map((link, index) => (
               <li key={ index } className={css(styles.link)}>
-                <a className={css(styles.red)} href={link.url}>{ link.text }</a>
+                <a className={css(styles.red)} href={link.url} target="_blank">{ link.text }</a>
               </li>
               ))}
           </ul>

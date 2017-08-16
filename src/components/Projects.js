@@ -32,8 +32,8 @@ class Projects extends Component {
         imgUrl: 'http://res.cloudinary.com/lejipni8p/image/upload/c_crop,g_north,h_1310,w_2560/v1490814219/Screen_Shot_2017-03-24_at_5.03.32_PM_gsp3re.png',
         links: [
           { text: 'live-site', url: 'https://portamento.herokuapp.com' },
-          { text: 'repo(app)', url: 'https://www.npmjs.com/package/react-rain-animation'}, 
-          {text: 'repo(server)', url: 'https://github.com/willnickerson/react-rain-animation'}
+          { text: 'repo(app)', url: 'https://github.com/willnickerson/portamento-app'}, 
+          {text: 'repo(server)', url: 'https://github.com/willnickerson/portamento-server'}
         ] 
       },
       {
@@ -42,8 +42,8 @@ class Projects extends Component {
         imgUrl: 'http://res.cloudinary.com/lejipni8p/image/upload/c_crop,g_north,h_1310,w_2560/v1490814197/Screen_Shot_2017-03-24_at_5.05.17_PM_gunpnq.png',
         links: [
           { text: 'live-site', url: 'https://earth-house.herokuapp.com' },
-          { text: 'repo(app)', url: 'https://www.npmjs.com/package/react-rain-animation'}, 
-          {text: 'repo(server)', url: 'https://github.com/willnickerson/react-rain-animation'}
+          { text: 'repo(app)', url: 'https://github.com/willnickerson/earth-house-app'}, 
+          {text: 'repo(server)', url: 'https://github.com/willnickerson/earth-house-server'}
         ] 
       },
       {
@@ -51,9 +51,8 @@ class Projects extends Component {
         description: 'Make delicious juice recipices with my first full-stack React applicaiton!',
         imgUrl: 'http://res.cloudinary.com/lejipni8p/image/upload/c_crop,g_north,h_1310,w_2560/v1499893316/Screen_Shot_2017-07-12_at_2.00.57_PM_x63cpk.png',
         links: [
-          { text: 'live-site', url: 'https://earth-house.herokuapp.com' },
-          { text: 'repo(app)', url: 'https://www.npmjs.com/package/react-rain-animation'}, 
-          {text: 'repo(server)', url: 'https://github.com/willnickerson/react-rain-animation'}
+          { text: 'repo(app)', url: 'https://github.com/willnickerson/react-juicer'}, 
+          {text: 'repo(server)', url: 'https://github.com/willnickerson/react-juicer-server'}
         ]
       }
     ];
