@@ -6,7 +6,7 @@ import { StyleSheet, css } from 'aphrodite';
 export default function About(props) {
   return (
     <div className={`${css(styles.about)} Page`} id="About">
-      <p className={css(styles.aboutText)}>Hi! My name is Will and I am a full-stack JavaScript developer living in Portland, OR.</p>
+      <p className={css(styles.aboutText)}>I am a full-stack JavaScript developer living in Portland, OR. I design and build web applications with the MEAN/MERN stack.</p>
       <Rain/>
       <DownButton text="Projects" anchor="#Projects"/>
     </div>
@@ -18,18 +18,22 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   aboutText: {
-    fontSize: '1.5em',
+    fontSize: '1.3em',
+    width: '90%',
+    fontWeight: 100,
     margin: '0 auto 30px auto',
-    width: '100%',
-    fontWeight: '100',
-
     '@media (min-width: 360px)': {
-      fontSize: '1.8em',
+      fontSize: '1.5em',
       width: '80%'
     },
     '@media (min-width: 600px)': {
-      fontSize: '2.1em',
+      lineHeight: '45px',
+      fontSize: '1.8em',
       width: '80%'
-    }
+    },
+    '@media (min-width: 950px)': {
+      width: '70%',
+      marginTop: '50px'
+    },
   }
 });

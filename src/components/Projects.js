@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
 import DownButton from './DownButton';
+import Project from './Project';
 import { StyleSheet, css } from 'aphrodite';
 
 class Projects extends Component {
@@ -13,43 +14,63 @@ class Projects extends Component {
       slidesToShow: 1,
       slidesToScroll: 1
     };
+
+    const projects = [
+      {
+        name: 'react-rain-animation',
+        description: 'A stateful rain animation component for your react project(no additional dependencies and availible on npm).',
+        imgUrl: 'http://res.cloudinary.com/lejipni8p/image/upload/c_crop,g_north,h_1310,w_2560/v1502837965/Screen_Shot_2017-08-15_at_3.58.23_PM_visdgs.png',
+        links: [
+          { text: 'demo', url: 'https://willnickerson.github.io/react-rain-demo/' },
+          { text: 'npm', url: 'https://www.npmjs.com/package/react-rain-animation'}, 
+          {text: 'github', url: 'https://github.com/willnickerson/react-rain-animation'}
+        ]
+      },
+      {
+        name: 'Portamento',
+        description: 'Social media meets the synthesizer. Share and discover sounds the you make on this MEAN stack and Tone.js application.',
+        imgUrl: 'http://res.cloudinary.com/lejipni8p/image/upload/c_crop,g_north,h_1310,w_2560/v1490814219/Screen_Shot_2017-03-24_at_5.03.32_PM_gsp3re.png',
+        links: [
+          { text: 'live-site', url: 'https://portamento.herokuapp.com' },
+          { text: 'repo(app)', url: 'https://www.npmjs.com/package/react-rain-animation'}, 
+          {text: 'repo(server)', url: 'https://github.com/willnickerson/react-rain-animation'}
+        ] 
+      },
+      {
+        name: 'Earth House',
+        description: 'An ecommerce and content management solution built for a local cold-pressed juice company using the MEAN stack.',
+        imgUrl: 'http://res.cloudinary.com/lejipni8p/image/upload/c_crop,g_north,h_1310,w_2560/v1490814197/Screen_Shot_2017-03-24_at_5.05.17_PM_gunpnq.png',
+        links: [
+          { text: 'live-site', url: 'https://earth-house.herokuapp.com' },
+          { text: 'repo(app)', url: 'https://www.npmjs.com/package/react-rain-animation'}, 
+          {text: 'repo(server)', url: 'https://github.com/willnickerson/react-rain-animation'}
+        ] 
+      },
+      {
+        name: 'React Juicer',
+        description: 'Make delicious juice recipices with my first full-stack React applicaiton!',
+        imgUrl: 'http://res.cloudinary.com/lejipni8p/image/upload/c_crop,g_north,h_1310,w_2560/v1499893316/Screen_Shot_2017-07-12_at_2.00.57_PM_x63cpk.png',
+        links: [
+          { text: 'live-site', url: 'https://earth-house.herokuapp.com' },
+          { text: 'repo(app)', url: 'https://www.npmjs.com/package/react-rain-animation'}, 
+          {text: 'repo(server)', url: 'https://github.com/willnickerson/react-rain-animation'}
+        ]
+      }
+    ];
+
     return (
       <div id="Projects" className={css(styles.sliderPage)}>
         <Slider {...settings}>
-          <div>
-            {/* eventually but sub slider in here */}
-              <p className={css(styles.description)}>
-                <span className={css(styles.title)}>Portamento. </span>
-                Social media meets the synthesizer. Share and discover sounds the you make on this MEAN stack application. 
-                <ul className={css(styles.linkList)}>
-                  <li><a className={css(styles.link)} href="https://portamento.herokuapp.com/#!/"> live site </a></li>
-                  <li><a className={css(styles.link)} href=""> repos</a></li>
-                </ul>
-                <img className="project-image" src="http://res.cloudinary.com/lejipni8p/image/upload/c_crop,g_north,h_1310,w_2560/v1490814219/Screen_Shot_2017-03-24_at_5.03.32_PM_gsp3re.png" alt="#"/>
-              </p> 
-          </div>
-          <div>
-            <p className={css(styles.description)}>
-              <span className={css(styles.title)}>Earth House. </span>
-              An ecommerceand content management solution built for a local cold-pressed juice company using the MEAN stack.
-              <ul className={css(styles.linkList)}>
-                <li><a className={css(styles.link)} href="https://portamento.herokuapp.com/#!/"> live site</a></li>
-                <li><a className={css(styles.link)} href="">repos</a></li>
-              </ul>
-              <img className="project-image" src="http://res.cloudinary.com/lejipni8p/image/upload/c_crop,g_north,h_1310,w_2560/v1490814197/Screen_Shot_2017-03-24_at_5.05.17_PM_gunpnq.png" alt="#"/>
-            </p>
-          </div>
-          <div>
-            <p className={css(styles.description)}>
-              <span className={css(styles.title)}>React Juicer. </span>
-              Make delicious juice recipices with my first full-stack React app!
-              <ul className={css(styles.linkList)}>
-                <li><a className={css(styles.link)} href="https://portamento.herokuapp.com/#!/">live site</a></li>
-                <li><a className={css(styles.link)} href="">repos</a></li>
-              </ul>
-              <img className="project-image" src="http://res.cloudinary.com/lejipni8p/image/upload/c_crop,g_north,h_1310,w_2560/v1499893316/Screen_Shot_2017-07-12_at_2.00.57_PM_x63cpk.png" alt="#"/>
-            </p>
-          </div>
+          { projects.map((project, index) => (
+            <div key={index} data-index={index}>
+              <Project
+                name={project.name}
+                description={project.description}
+                imgUrl={project.imgUrl}
+                links={project.links}
+              />
+            </div>
+          ))}
         </Slider>
         <DownButton text="Contact" anchor="#Contact"/>
       </div>
@@ -70,45 +91,7 @@ const styles = StyleSheet.create({
     '@media (min-width: 600px)': {
       height: '85vh',
       paddingTop: '15vh'
-    }
-  },
-  title: {
-    display: 'inline',
-    fontSize: '1.3em',
-    fontFamily: '"Metal Lord", sans-serif'
-  },
-  description: {
-    fontSize: '.9em',
-    textAlign: 'left',
-    width: '85%',
-    margin: '0 auto',
-    height: '50vh',
-    overflow: '-moz-scrollbars-vertical', 
-    overflowY: 'scroll',
-    '@media (min-width: 600px)': {
-      height: '45vh'
     },
-    '@media (min-width: 850px)': {
-      height: 'auto',
-      width: '75%'
-    }
-  },
-  logoItem: {
-    float: 'left',
-    width: '20%'
-  },
-  logo: {
-    width: '100%'
-  },
-  link: {
-    color: 'rgb(255,40,0)',
-    fontSize: '1em',
-    marginRight: '15px',
-    float: 'left',
-    fontFamily: '"Raleway", sans-serif'
-  },
-  linkList: {
-    margin: 0
   }
 });
 

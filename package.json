@@ -9,7 +9,8 @@
     "react-collapsible": "^1.4.0",
     "react-dom": "^15.6.1",
     "react-scrollchor": "^4.0.0",
-    "react-slick": "^0.14.11"
+    "react-slick": "^0.14.11",
+    "react-typist": "^1.1.1"
   },
   "devDependencies": {
     "react-scripts": "1.0.10"

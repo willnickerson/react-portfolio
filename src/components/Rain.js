@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// import ReactDOM from 'react-dom';
-// import Knob from 'react-canvas-knob';
 import DownButton from './DownButton';
 import { StyleSheet, css } from 'aphrodite';
 import sadFace from '../assets/svg/sad.svg';
@@ -8,7 +6,6 @@ import happyFace from '../assets/svg/happy.svg';
 import cryingFace from '../assets/svg/crying.svg';
 import Slider, { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
-// const createSliderWithTooltip = Slider.createSliderWithTooltip;
 
 class Rain extends Component {
 
@@ -16,7 +13,7 @@ class Rain extends Component {
     super(props);
 
     this.state =  { 
-      numDrops: 7,
+      numDrops: 1,
       message: 'Turn up the rain',
       navMessage: (
         <DownButton text="About" anchor="#About"/>
