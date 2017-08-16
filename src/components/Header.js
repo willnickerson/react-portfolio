@@ -19,10 +19,10 @@ class Header extends Component {
         <Nav/>
         <ul className={css(styles.socials)}>
           <li className={css(styles.socialItem)}>
-            <span className="icon-linkedin"></span>
+            <a target="_blank" href="https://www.linkedin.com/in/william-nickerson-439976103/"><span className="icon-linkedin"></span></a>
           </li>
           <li className={css(styles.socialItem)}>
-            <span className="icon-github"></span>
+            <a target="_blank" href="https://github.com/willnickerson"><span className="icon-github"></span></a>
           </li>
         </ul>
         <div className="Clearfix"/>
