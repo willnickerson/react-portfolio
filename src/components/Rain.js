@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import DownButton from './DownButton';
 import { StyleSheet, css } from 'aphrodite';
-import sadFace from '../assets/svg/sad.svg';
 import happyFace from '../assets/svg/happy.svg';
 import cryingFace from '../assets/svg/crying.svg';
-import Slider, { Range } from 'rc-slider';
+import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
 class Rain extends Component {
@@ -43,21 +42,6 @@ class Rain extends Component {
     this.createRain();
   }
 
-  displayInput = () => {
-    if(this.state.numDrops < 4) {
-      return (
-        <img className={css(styles.emoticon)} src={happyFace} alt=": )"/>
-      );
-    } else if(this.state.numDrops <= 7) {
-      return (
-        <img className={css(styles.emoticon)} src={sadFace} alt=": ("/>
-      );
-    } else {
-      return (
-        <img className={css(styles.emoticon)} src={cryingFace} alt=":'("/>
-      );
-    }
-  }
 
   testScroll = ev => {
     window.onscroll = () => {
