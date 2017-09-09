@@ -4,8 +4,10 @@ import Typist from 'react-typist';
 import 'react-typist/dist/Typist.css';
 import { StyleSheet, css } from 'aphrodite';
 import logo from '../assets/svg/wn-cup-logo.svg';
-import whiteLogo from '../assets/images/white-coffee-cup.svg';
-import downArrow from '../assets/images/down-arrow.svg';
+import whiteLogo from '../assets/svg/white-coffee-cup.svg';
+import downArrow from '../assets/svg/down-arrow.svg';
+import downArrowRed from '../assets/svg/down-arrow-red.svg';
+import redLogo from '../assets/svg/red-coffee-cup2.svg';
 
 class Landing extends Component {
   constructor(props) {
@@ -42,13 +44,19 @@ class Landing extends Component {
         <div className={css(styles.cupContainer)}>
           <Scrollchor to="#About">
             {this.state.seccondMessage ?
-              <img src={logo} className={css(styles.logo, styles.forceHoveredLogo)} alt="#" /> :
+              <img src={logo} className={css(styles.logo, styles.forceHoveredLogo)} alt="#" />:
               <img src={logo} className={css(styles.logo)} alt="#" />
             }
+            {this.state.seccondMessage && <img src={redLogo} className={css(styles.logo, styles.redLogo)} alt="#"/> }
             <img src={whiteLogo} className={css(styles.whiteLogo)} alt="#"/>
             {this.state.seccondMessage ?
-              <img src={downArrow} alt="#" className={`${css(styles.arrow, styles.forceHoveredArrow)} arrow`}/>:
-              <img src={downArrow} alt="#" className={`${css(styles.arrow)} arrow`}/>
+              <div className={css(styles.arrowContainer)}>
+                <img src={downArrowRed} alt="#" className={`${css(styles.redArrow)} arrow`}/>
+                <img src={downArrow} alt="#" className={`${css(styles.arrow, styles.forceHoveredArrow)} arrow`}/>
+              </div>:
+              <div className={css(styles.arrowContainer)}>
+                <img src={downArrow} alt="#" className={`${css(styles.arrow)} arrow`}/>
+              </div>
             }
           </Scrollchor>
         </div>
@@ -125,30 +133,39 @@ const styles = StyleSheet.create({
     ':hover': {
       opacity: 0,
     },
-    ':hover ~ .arrow': {
+    ':hover ~ div img': {
       opacity: 1
-    }
+    },
   },
   whiteLogo: {
     height: '90%'
   },
+  redLogo: {
+    opacity: 0,
+    transition: 'all .5s ease',
+    ':hover': {
+      opacity: 1
+    },
+  },
+  arrowContainer: {
+    height: '45px',
+    width: '45px',
+    margin: '45px auto',
+  },
   arrow: {
     height: '45px',
-    display: 'block',
-    margin: '45px auto',
     opacity: '0',
+    transition: 'all .5s ease',
+  },
+  redArrow: {
+    height: '45px',
+    position: 'absolute', 
     transition: 'all .5s ease',
   },
   forceHoveredArrow: {
     opacity: 1,
-    // '@media (min-width: 800px)': {
-    //   opacity: 0
-    // } 
   },
   forceHoveredLogo: {
     opacity: 0,
-    // '@media (min-width: 800px)': {
-    //   opacity: 1
-    // } 
-  }
+  },
 });

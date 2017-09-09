@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Scrollchor from 'react-scrollchor';
-import downArrow from '../assets/images/down-arrow.svg';
+import downArrow from '../assets/svg/down-arrow.svg';
 import { StyleSheet, css } from 'aphrodite';
 
 const DownButton = props => {
