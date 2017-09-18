@@ -47,9 +47,11 @@ const styles = StyleSheet.create({
     fontSize: '1.3em',
     color: 'white',
     margin: '6%',
+    position: 'relative',
     '@media (min-width: 600px)': {
       margin: '3%'
-    }
+    },
+    zIndex: 1001
   },
   socialItem: {
     display: 'inline-block',
