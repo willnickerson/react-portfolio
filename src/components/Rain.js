@@ -16,14 +16,37 @@ class Rain extends Component {
       message: 'Turn up the rain',
       navMessage: (
         <DownButton text="About" anchor="#About"/>
-      )
+      ),
+      windowWidth: 0
     };
   }
 
   componentDidMount() {
-    this.createRain();
+    this.createRain(this.state.numDrops);
     this.testScroll();
+    const windowWidth = window ? window.innerWidth : 1600;
+    this.setState({
+      windowWidth
+    });
+
+    window.addEventListener('resize', e => {
+      this.setState({ windowWidth: e.target.innerWidth });
+      this.stopRain();
+      this.createRain(this.state.numDrops);
+    });
   }
+
+  componentWillUpdate(nextProps, nextState) {
+    let numDrops = nextState.numDrops - this.state.numDrops;
+    if( nextState.numDrops === 0 ) this.stopRain();
+    else this.createRain(numDrops);
+  }
+  
+
+  componentWillUnmount() {
+    window.removeEventListener('resize');
+  }
+  
 
   learnClicked = () => {
     this.setState({seenLanding: true});
@@ -33,20 +56,11 @@ class Rain extends Component {
     this.setState({numDrops: newValue});
   };
 
-  onChangeEnd = () => {
-    if(this.state.numDrops > 5) {
-      this.setState({ message: 'Turn down the rain'});
-    } else {
-      this.setState({ message: 'Turn up the rain'});
-    }
-    this.createRain();
-  }
-
 
   testScroll = ev => {
     window.onscroll = () => {
       if(window.pageYOffset >= window.innerHeight - 20 && window.pageYOffset < window.innerHeight + 200) {
-        this.createRain();
+        this.createRain(this.state.numDrops);
       } else {
         this.stopRain();
       }
@@ -56,25 +70,44 @@ class Rain extends Component {
   randRange(minNum, maxNum) {
     return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
   }
+
+  
  
-  createRain = () => {
-    this.stopRain();
+  createRain = (numDrops) => {
     const rainSection = document.getElementById('Rain');
 
-    for(let i = 1; i < this.state.numDrops * 150; i++) {
-      const dropLeft = this.randRange(0, 1600);
-      const dropTop = this.randRange(-1000, 1400);
-
-      const drop = document.createElement('div');
-
-      drop.setAttribute('class', 'drop');
-      drop.setAttribute('id', `drop${i}`);
-
-      rainSection.appendChild(drop);
-
-      drop.style.left = `${dropLeft}px`;
-      drop.style.top = `${dropTop}px`;
+    if(numDrops > 0) {
+      for(let i = 1; i < numDrops * 150; i++) {
+        const dropLeft = this.randRange(0, this.state.windowWidth);
+        const dropTop = this.randRange(-1000, 1400);
+  
+        const drop = document.createElement('div');
+  
+        drop.setAttribute('class', 'drop');
+        drop.setAttribute('id', `drop${i}`);
+  
+        rainSection.appendChild(drop);
+  
+        drop.style.left = `${dropLeft}px`;
+        drop.style.top = `${dropTop}px`;
+      }
+    } else {
+      const drops = document.getElementsByClassName('drop');
+      const indeces = [];
+      //change to actually generate enough random numbers instead of just skipping when it's a repeat
+      for(let i = 0; i < ( -numDrops * 150); i++) {
+        const randomNumber = Math.floor(Math.random() * this.state.numDrops * 150);
+        if(indeces.indexOf(randomNumber) === -1) {
+          indeces.push(randomNumber);
+        }
+      }
+      for( let j = 0; j < indeces.length; j++) {
+        const index = indeces[j];
+        const drop = drops[index];
+        if(drop) rainSection.removeChild(drop);
+      }
     }
+
   };
 
   stopRain = () => {
