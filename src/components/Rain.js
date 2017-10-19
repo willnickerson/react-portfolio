@@ -17,18 +17,17 @@ class Rain extends Component {
       navMessage: (
         <DownButton text="About" anchor="#About"/>
       ),
-      windowWidth: 0
+      windowWidth: null,
+      scrolledTo: false
     };
   }
 
   componentDidMount() {
-    this.createRain(this.state.numDrops);
-    this.testScroll();
     const windowWidth = window ? window.innerWidth : 1600;
     this.setState({
       windowWidth
     });
-
+    this.testScroll();
     window.addEventListener('resize', e => {
       this.setState({ windowWidth: e.target.innerWidth });
       this.stopRain();
@@ -60,9 +59,13 @@ class Rain extends Component {
   testScroll = ev => {
     window.onscroll = () => {
       if(window.pageYOffset >= window.innerHeight - 20 && window.pageYOffset < window.innerHeight + 200) {
-        this.createRain(this.state.numDrops);
+        if(!this.state.scrolledTo) {
+          this.createRain(this.state.numDrops);
+          this.setState({ scrolledTo: true });
+        }
       } else {
         this.stopRain();
+        this.setState({ scrolledTo: false });
       }
     };
   }
@@ -94,16 +97,20 @@ class Rain extends Component {
     } else {
       const drops = document.getElementsByClassName('drop');
       const indeces = [];
-      //change to actually generate enough random numbers instead of just skipping when it's a repeat
+
       for(let i = 0; i < ( -numDrops * 150); i++) {
-        const randomNumber = Math.floor(Math.random() * this.state.numDrops * 150);
-        if(indeces.indexOf(randomNumber) === -1) {
-          indeces.push(randomNumber);
-        }
+        let unique = false;
+        do {
+          const randomNumber = Math.floor(Math.random() * this.state.numDrops * 150);
+          if(indeces.indexOf(randomNumber) === -1) {
+            indeces.push(randomNumber);
+            unique = true;
+          }
+        } while( !unique );
       }
+
       for( let j = 0; j < indeces.length; j++) {
-        const index = indeces[j];
-        const drop = drops[index];
+        const drop = drops[indeces[j]];
         if(drop) rainSection.removeChild(drop);
       }
     }
